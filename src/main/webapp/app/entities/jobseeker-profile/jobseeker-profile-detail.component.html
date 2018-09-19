@@ -1,0 +1,68 @@
+
+<div *ngIf="jobseeker">
+    <h2><span jhiTranslate="fmsApp.jobseeker.detail.title">Jobseeker</span> {{jobseeker.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.jobseeker.regestrationDate">Regestration Date</span></dt>
+        <dd>
+            <span>{{jobseeker.regestrationDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.birthYear">Birth Year</span></dt>
+        <dd>
+            <span>{{jobseeker.birthYear | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.firstName">First Name</span></dt>
+        <dd>
+            <span>{{jobseeker.firstName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{jobseeker.lastName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.unemployed">Unemployed</span></dt>
+        <dd>
+            <span>{{jobseeker.unemployed}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.lastActive">Last Active</span></dt>
+        <dd>
+            <span>{{jobseeker.lastActive | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.user">User</span></dt>
+        <dd>
+            {{jobseeker.user?.id}}
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.image">Image</span></dt>
+        <dd>
+            <div *ngIf="jobseeker.image">
+                <a [routerLink]="['/jobseeker-image', jobseeker.image?.id]">{{jobseeker.image?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.video">Video</span></dt>
+        <dd>
+            <div *ngIf="jobseeker.video">
+                <a [routerLink]="['/jobseeker-video', jobseeker.video?.id]">{{jobseeker.video?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.jobseeker.presentation">Presentation</span></dt>
+        <dd>
+            <div *ngIf="jobseeker.presentation">
+                <a [routerLink]="['/presentation', jobseeker.presentation?.id]">{{jobseeker.presentation?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'jobseeker/'+ jobseeker.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

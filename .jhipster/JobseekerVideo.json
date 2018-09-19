@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "videoLink",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065723",
+    "entityTableName": "jobseeker_video",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

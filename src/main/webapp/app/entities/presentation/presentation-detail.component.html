@@ -1,0 +1,30 @@
+
+<div *ngIf="presentation">
+    <h2><span jhiTranslate="fmsApp.presentation.detail.title">Presentation</span> {{presentation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.presentation.title">Title</span></dt>
+        <dd>
+            <span>{{presentation.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.presentation.presentation">Presentation</span></dt>
+        <dd>
+            <span>{{presentation.presentation}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'presentation/'+ presentation.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

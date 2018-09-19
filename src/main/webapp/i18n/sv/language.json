@@ -1,0 +1,24 @@
+
+{
+    "fmsApp": {
+        "language" : {
+            "home": {
+                "title": "Languages",
+                "createLabel": "Skapa en ny Language",
+                "createOrEditLabel": "Skapa eller ändra en Language"
+            },
+            "created": "En ny Language är skapad med id {{ param }}",
+            "updated": "En Language är uppdaterad med id  {{ param }}",
+            "deleted": "En Language är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Language {{ id }}?"
+            },
+            "detail": {
+                "title": "Language"
+            },
+            "languageName": "Language Name",
+            "jobseeker": "Jobseeker",
+            "vacancy": "Vacancy"
+        }
+    }
+}

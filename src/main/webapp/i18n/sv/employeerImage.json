@@ -1,0 +1,23 @@
+
+{
+    "fmsApp": {
+        "employeerImage" : {
+            "home": {
+                "title": "Employeer Images",
+                "createLabel": "Skapa en ny Employeer Image",
+                "createOrEditLabel": "Skapa eller ändra en Employeer Image"
+            },
+            "created": "En ny Employeer Image är skapad med id {{ param }}",
+            "updated": "En Employeer Image är uppdaterad med id  {{ param }}",
+            "deleted": "En Employeer Image är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Employeer Image {{ id }}?"
+            },
+            "detail": {
+                "title": "Employeer Image"
+            },
+            "imageLink": "Image Link",
+            "employeer": "Employeer"
+        }
+    }
+}

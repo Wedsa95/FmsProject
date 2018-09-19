@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="fmsApp.email.home.title">Emails</span>
+        <button class="btn btn-primary float-right jh-create-entity create-email" [routerLink]="['/', { outlets: { popup: ['email-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="fmsApp.email.home.createLabel">
+            Create new Email
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="emails">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="fmsApp.email.emailAddress">Email Address</span></th>
+            <th><span jhiTranslate="fmsApp.email.emailType">Email Type</span></th>
+            <th><span jhiTranslate="fmsApp.email.jobseeker">Jobseeker</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let email of emails ;trackBy: trackId">
+                <td><a [routerLink]="['../email', email.id ]">{{email.id}}</a></td>
+                <td>{{email.emailAddress}}</td>
+                <td>{{email.emailType}}</td>
+                <td>
+                    <div *ngIf="email.jobseeker">
+                        <a [routerLink]="['../jobseeker', email.jobseeker?.id ]" >{{email.jobseeker?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../email', email.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'email/'+ email.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'email/'+ email.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

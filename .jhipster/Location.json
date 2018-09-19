@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "jobseeker",
+            "otherEntityName": "jobseeker",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "vacancy",
+            "otherEntityName": "vacancy",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "county",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065719",
+    "entityTableName": "location",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

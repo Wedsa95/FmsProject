@@ -1,0 +1,32 @@
+
+<div *ngIf="employeerImage">
+    <h2><span jhiTranslate="fmsApp.employeerImage.detail.title">Employeer Image</span> {{employeerImage.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.employeerImage.imageLink">Image Link</span></dt>
+        <dd>
+            <span>{{employeerImage.imageLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.employeerImage.employeer">Employeer</span></dt>
+        <dd>
+            <div *ngIf="employeerImage.employeer">
+                <a [routerLink]="['/employeer', employeerImage.employeer?.id]">{{employeerImage.employeer?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'employeer-image/'+ employeerImage.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

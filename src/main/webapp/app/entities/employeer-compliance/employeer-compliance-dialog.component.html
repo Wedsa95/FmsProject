@@ -1,0 +1,47 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myEmployeerComplianceLabel" jhiTranslate="fmsApp.employeerCompliance.home.createOrEditLabel">Create or edit a Employeer Compliance</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!employeerCompliance.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="employeerCompliance.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.employeerCompliance.dateCompliance" for="field_dateCompliance">Date Compliance</label>
+            <div class="input-group">
+                <input id="field_dateCompliance" type="text" class="form-control" name="dateCompliance" ngbDatepicker  #dateComplianceDp="ngbDatepicker" [(ngModel)]="employeerCompliance.dateCompliance"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateComplianceDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.employeerCompliance.answerCompliance" for="field_answerCompliance">Answer Compliance</label>
+            <input type="checkbox" class="form-control" name="answerCompliance" id="field_answerCompliance"
+                [(ngModel)]="employeerCompliance.answerCompliance" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.employeerCompliance.employeer" for="field_employeer">Employeer</label>
+            <select class="form-control" id="field_employeer" name="employeer" [(ngModel)]="employeerCompliance.employeer" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="employeerOption.id === employeerCompliance.employeer?.id ? employeerCompliance.employeer : employeerOption" *ngFor="let employeerOption of employeers; trackBy: trackEmployeerById">{{employeerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

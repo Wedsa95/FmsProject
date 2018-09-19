@@ -1,0 +1,32 @@
+
+<div *ngIf="consultingExperience">
+    <h2><span jhiTranslate="fmsApp.consultingExperience.detail.title">Consulting Experience</span> {{consultingExperience.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.consultingExperience.yearsConsulting">Years Consulting</span></dt>
+        <dd>
+            <span>{{consultingExperience.yearsConsulting}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.consultingExperience.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="consultingExperience.jobseeker">
+                <a [routerLink]="['/jobseeker', consultingExperience.jobseeker?.id]">{{consultingExperience.jobseeker?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'consulting-experience/'+ consultingExperience.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

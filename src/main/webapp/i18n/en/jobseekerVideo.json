@@ -1,0 +1,22 @@
+
+{
+    "fmsApp": {
+        "jobseekerVideo" : {
+            "home": {
+                "title": "Jobseeker Videos",
+                "createLabel": "Create a new Jobseeker Video",
+                "createOrEditLabel": "Create or edit a Jobseeker Video"
+            },
+            "created": "A new Jobseeker Video is created with identifier {{ param }}",
+            "updated": "A Jobseeker Video is updated with identifier {{ param }}",
+            "deleted": "A Jobseeker Video is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Jobseeker Video {{ id }}?"
+            },
+            "detail": {
+                "title": "Jobseeker Video"
+            },
+            "videoLink": "Video Link"
+        }
+    }
+}

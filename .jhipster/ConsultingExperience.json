@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "jobseeker",
+            "otherEntityName": "jobseeker",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "yearsConsulting",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180912065720",
+    "entityTableName": "consulting_experience",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

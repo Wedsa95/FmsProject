@@ -1,0 +1,27 @@
+
+{
+    "fmsApp": {
+        "workExperience" : {
+            "home": {
+                "title": "Work Experiences",
+                "createLabel": "Skapa en ny Work Experience",
+                "createOrEditLabel": "Skapa eller ändra en Work Experience"
+            },
+            "created": "En ny Work Experience är skapad med id {{ param }}",
+            "updated": "En Work Experience är uppdaterad med id  {{ param }}",
+            "deleted": "En Work Experience är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Work Experience {{ id }}?"
+            },
+            "detail": {
+                "title": "Work Experience"
+            },
+            "companyName": "Company Name",
+            "position": "Position",
+            "description": "Description",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "jobseeker": "Jobseeker"
+        }
+    }
+}

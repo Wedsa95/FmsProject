@@ -1,0 +1,48 @@
+
+<div *ngIf="workExperience">
+    <h2><span jhiTranslate="fmsApp.workExperience.detail.title">Work Experience</span> {{workExperience.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.workExperience.companyName">Company Name</span></dt>
+        <dd>
+            <span>{{workExperience.companyName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.workExperience.position">Position</span></dt>
+        <dd>
+            <span>{{workExperience.position}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.workExperience.description">Description</span></dt>
+        <dd>
+            <span>{{workExperience.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.workExperience.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{workExperience.startDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.workExperience.endDate">End Date</span></dt>
+        <dd>
+            <span>{{workExperience.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.workExperience.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="workExperience.jobseeker">
+                <a [routerLink]="['/jobseeker', workExperience.jobseeker?.id]">{{workExperience.jobseeker?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'work-experience/'+ workExperience.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,127 @@
+entity Jobseeker {
+	regestrationDate LocalDate,
+    birthYear LocalDate,
+    firstName String,
+    lastName String,
+    unemployed Boolean,
+    lastActive LocalDate
+}
+entity Employeer {
+	employeerName String,
+    lastActive LocalDate,
+    companyRegistrationNumber String
+}
+entity Vacancy {
+	uploadDate LocalDate,
+    vacancieRole String,
+    jobDescription TextBlob,
+    aspirantDescription TextBlob,
+    aboutDescription TextBlob,
+    contactPerson String
+}
+entity EmployeerCompliance {
+	dateCompliance LocalDate,
+    answerCompliance Boolean
+}
+entity EmployeerImage {
+	imageLink String
+}
+entity Branch {
+	branchName String
+}
+entity Location {
+	county String
+}
+entity ConsultingExperience {
+	yearsConsulting Integer
+}
+entity Language {
+	languageName String
+}
+entity JobseekerImage {
+	imageLink String
+}
+entity JobseekerVideo {
+	videoLink String
+}
+entity JobseekerCompliance {
+	dateCompliance LocalDate,
+    answerCompliance Boolean
+}
+entity Skill {
+	skillName String
+    skillLevel Integer
+}
+entity Role {
+	roleName String
+}
+entity Extent {
+	extentDescription String
+}
+entity Reference {
+	name String,
+    letter TextBlob
+}
+entity PhoneNumber {
+	phoneNumber String,
+    phoneType String
+}
+entity Email {
+	emailAddress String,
+    emailType String
+}
+entity Presentation {
+	title String,
+    presentation TextBlob
+}
+entity Education {
+	institution String,
+    program String,
+    startDate LocalDate,
+    endDate LocalDate
+}
+entity Degree {
+	degreeType String
+}
+entity WorkExperience {
+	companyName String,
+    position String,
+    description TextBlob,
+    startDate LocalDate,
+    endDate LocalDate
+}
+relationship OneToOne {
+	Jobseeker{user} to User
+    Employeer{user} to User
+    Education{degree} to Degree
+    Jobseeker{image} to JobseekerImage
+    Jobseeker{video} to JobseekerVideo
+    Jobseeker{presentation} to Presentation
+    Vacancy{degree} to Degree
+    Vacancy{consultingExperience} to ConsultingExperience
+}
+relationship OneToMany {
+	Jobseeker{skills} to Skill
+    Jobseeker{branches} to Branch
+    Jobseeker{languages} to Language
+    Jobseeker{locations} to Location
+    Jobseeker{consultingExperience} to ConsultingExperience
+    Jobseeker{roles} to Role
+    Jobseeker{emails} to Email
+	Jobseeker{phonenumbers} to PhoneNumber
+	Jobseeker{experience} to Extent
+    Jobseeker{jobseekerCompliance} to JobseekerCompliance
+    Jobseeker{educations} to Education
+    Jobseeker{workExperiences} to WorkExperience
+    Jobseeker{references} to Reference
+    Employeer{employeerCompliance} to EmployeerCompliance
+    Employeer{image} to EmployeerImage
+    Employeer{vacancies} to Vacancy
+	Vacancy{extents} to Extent
+    Vacancy{roles} to Role
+    Vacancy{locations} to Location
+    Vacancy{languages} to Language
+    Vacancy{branches} to Branch
+    Vacancy{skills} to Skill
+    Vacancy{roles} to Role
+}

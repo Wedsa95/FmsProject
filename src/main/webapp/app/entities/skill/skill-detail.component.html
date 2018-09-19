@@ -1,0 +1,42 @@
+
+<div *ngIf="skill">
+    <h2><span jhiTranslate="fmsApp.skill.detail.title">Skill</span> {{skill.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.skill.skillName">Skill Name</span></dt>
+        <dd>
+            <span>{{skill.skillName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.skill.skillLevel">Skill Level</span></dt>
+        <dd>
+            <span>{{skill.skillLevel}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.skill.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="skill.jobseeker">
+                <a [routerLink]="['/jobseeker', skill.jobseeker?.id]">{{skill.jobseeker?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.skill.vacancy">Vacancy</span></dt>
+        <dd>
+            <div *ngIf="skill.vacancy">
+                <a [routerLink]="['/vacancy', skill.vacancy?.id]">{{skill.vacancy?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'skill/'+ skill.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

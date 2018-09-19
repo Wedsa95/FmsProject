@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span jhiTranslate="fmsApp.vacancy.home.title">Vacancies</span>
+        <button class="btn btn-primary float-right jh-create-entity create-vacancy" [routerLink]="['/', { outlets: { popup: ['vacancy-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="fmsApp.vacancy.home.createLabel">
+            Create new Vacancy
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="vacancies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.uploadDate">Upload Date</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.vacancieRole">Vacancie Role</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.jobDescription">Job Description</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.aspirantDescription">Aspirant Description</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.aboutDescription">About Description</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.contactPerson">Contact Person</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.employeer">Employeer</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.degree">Degree</span></th>
+            <th><span jhiTranslate="fmsApp.vacancy.consultingExperience">Consulting Experience</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vacancy of vacancies ;trackBy: trackId">
+                <td><a [routerLink]="['../vacancy', vacancy.id ]">{{vacancy.id}}</a></td>
+                <td>{{vacancy.uploadDate | date:'mediumDate'}}</td>
+                <td>{{vacancy.vacancieRole}}</td>
+                <td>{{vacancy.jobDescription}}</td>
+                <td>{{vacancy.aspirantDescription}}</td>
+                <td>{{vacancy.aboutDescription}}</td>
+                <td>{{vacancy.contactPerson}}</td>
+                <td>
+                    <div *ngIf="vacancy.employeer">
+                        <a [routerLink]="['../employeer', vacancy.employeer?.id ]" >{{vacancy.employeer?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="vacancy.degree">
+                        <a [routerLink]="['../degree', vacancy.degree?.id ]" >{{vacancy.degree?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="vacancy.consultingExperience">
+                        <a [routerLink]="['../consulting-experience', vacancy.consultingExperience?.id ]" >{{vacancy.consultingExperience?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../vacancy', vacancy.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'vacancy/'+ vacancy.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'vacancy/'+ vacancy.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

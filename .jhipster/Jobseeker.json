@@ -1,0 +1,147 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "image",
+            "otherEntityName": "jobseekerImage",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "video",
+            "otherEntityName": "jobseekerVideo",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "presentation",
+            "otherEntityName": "presentation",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "skills",
+            "otherEntityName": "skill",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "branches",
+            "otherEntityName": "branch",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "languages",
+            "otherEntityName": "language",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locations",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "consultingExperience",
+            "otherEntityName": "consultingExperience",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "roles",
+            "otherEntityName": "role",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "emails",
+            "otherEntityName": "email",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "phonenumbers",
+            "otherEntityName": "phoneNumber",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "experience",
+            "otherEntityName": "extent",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "jobseekerCompliance",
+            "otherEntityName": "jobseekerCompliance",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "educations",
+            "otherEntityName": "education",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "workExperiences",
+            "otherEntityName": "workExperience",
+            "otherEntityRelationshipName": "jobseeker"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "references",
+            "otherEntityName": "reference",
+            "otherEntityRelationshipName": "jobseeker"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "regestrationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "birthYear",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unemployed",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "lastActive",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180912065713",
+    "entityTableName": "jobseeker",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

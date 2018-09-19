@@ -1,0 +1,23 @@
+
+{
+    "fmsApp": {
+        "presentation" : {
+            "home": {
+                "title": "Presentations",
+                "createLabel": "Skapa en ny Presentation",
+                "createOrEditLabel": "Skapa eller ändra en Presentation"
+            },
+            "created": "En ny Presentation är skapad med id {{ param }}",
+            "updated": "En Presentation är uppdaterad med id  {{ param }}",
+            "deleted": "En Presentation är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Presentation {{ id }}?"
+            },
+            "detail": {
+                "title": "Presentation"
+            },
+            "title": "Title",
+            "presentation": "Presentation"
+        }
+    }
+}

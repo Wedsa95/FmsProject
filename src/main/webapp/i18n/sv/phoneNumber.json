@@ -1,0 +1,24 @@
+
+{
+    "fmsApp": {
+        "phoneNumber" : {
+            "home": {
+                "title": "Phone Numbers",
+                "createLabel": "Skapa en ny Phone Number",
+                "createOrEditLabel": "Skapa eller ändra en Phone Number"
+            },
+            "created": "En ny Phone Number är skapad med id {{ param }}",
+            "updated": "En Phone Number är uppdaterad med id  {{ param }}",
+            "deleted": "En Phone Number är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Phone Number {{ id }}?"
+            },
+            "detail": {
+                "title": "Phone Number"
+            },
+            "phoneNumber": "Phone Number",
+            "phoneType": "Phone Type",
+            "jobseeker": "Jobseeker"
+        }
+    }
+}

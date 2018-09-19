@@ -1,0 +1,28 @@
+
+{
+    "fmsApp": {
+        "employeer" : {
+            "home": {
+                "title": "Employeers",
+                "createLabel": "Create a new Employeer",
+                "createOrEditLabel": "Create or edit a Employeer"
+            },
+            "created": "A new Employeer is created with identifier {{ param }}",
+            "updated": "A Employeer is updated with identifier {{ param }}",
+            "deleted": "A Employeer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Employeer {{ id }}?"
+            },
+            "detail": {
+                "title": "Employeer"
+            },
+            "employeerName": "Employeer Name",
+            "lastActive": "Last Active",
+            "companyRegistrationNumber": "Company Registration Number",
+            "user": "User",
+            "employeerCompliance": "Employeer Compliance",
+            "image": "Image",
+            "vacancies": "Vacancies"
+        }
+    }
+}

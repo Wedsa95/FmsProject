@@ -1,0 +1,22 @@
+
+{
+    "fmsApp": {
+        "jobseekerImage" : {
+            "home": {
+                "title": "Jobseeker Images",
+                "createLabel": "Create a new Jobseeker Image",
+                "createOrEditLabel": "Create or edit a Jobseeker Image"
+            },
+            "created": "A new Jobseeker Image is created with identifier {{ param }}",
+            "updated": "A Jobseeker Image is updated with identifier {{ param }}",
+            "deleted": "A Jobseeker Image is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Jobseeker Image {{ id }}?"
+            },
+            "detail": {
+                "title": "Jobseeker Image"
+            },
+            "imageLink": "Image Link"
+        }
+    }
+}

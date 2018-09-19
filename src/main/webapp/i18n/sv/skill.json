@@ -1,0 +1,25 @@
+
+{
+    "fmsApp": {
+        "skill" : {
+            "home": {
+                "title": "Skills",
+                "createLabel": "Skapa en ny Skill",
+                "createOrEditLabel": "Skapa eller ändra en Skill"
+            },
+            "created": "En ny Skill är skapad med id {{ param }}",
+            "updated": "En Skill är uppdaterad med id  {{ param }}",
+            "deleted": "En Skill är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Skill {{ id }}?"
+            },
+            "detail": {
+                "title": "Skill"
+            },
+            "skillName": "Skill Name",
+            "skillLevel": "Skill Level",
+            "jobseeker": "Jobseeker",
+            "vacancy": "Vacancy"
+        }
+    }
+}

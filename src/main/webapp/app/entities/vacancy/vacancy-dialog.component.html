@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myVacancyLabel" jhiTranslate="fmsApp.vacancy.home.createOrEditLabel">Create or edit a Vacancy</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!vacancy.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="vacancy.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.uploadDate" for="field_uploadDate">Upload Date</label>
+            <div class="input-group">
+                <input id="field_uploadDate" type="text" class="form-control" name="uploadDate" ngbDatepicker  #uploadDateDp="ngbDatepicker" [(ngModel)]="vacancy.uploadDate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="uploadDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.vacancieRole" for="field_vacancieRole">Vacancie Role</label>
+            <input type="text" class="form-control" name="vacancieRole" id="field_vacancieRole"
+                [(ngModel)]="vacancy.vacancieRole" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.jobDescription" for="field_jobDescription">Job Description</label>
+            <textarea class="form-control" name="jobDescription" id="field_jobDescription"
+                [(ngModel)]="vacancy.jobDescription" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.aspirantDescription" for="field_aspirantDescription">Aspirant Description</label>
+            <textarea class="form-control" name="aspirantDescription" id="field_aspirantDescription"
+                [(ngModel)]="vacancy.aspirantDescription" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.aboutDescription" for="field_aboutDescription">About Description</label>
+            <textarea class="form-control" name="aboutDescription" id="field_aboutDescription"
+                [(ngModel)]="vacancy.aboutDescription" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.contactPerson" for="field_contactPerson">Contact Person</label>
+            <input type="text" class="form-control" name="contactPerson" id="field_contactPerson"
+                [(ngModel)]="vacancy.contactPerson" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.employeer" for="field_employeer">Employeer</label>
+            <select class="form-control" id="field_employeer" name="employeer" [(ngModel)]="vacancy.employeer" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="employeerOption.id === vacancy.employeer?.id ? vacancy.employeer : employeerOption" *ngFor="let employeerOption of employeers; trackBy: trackEmployeerById">{{employeerOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.degree" for="field_degree">Degree</label>
+            <select class="form-control" id="field_degree" name="degree" [(ngModel)]="vacancy.degree">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="degreeOption.id === vacancy.degree?.id ? vacancy.degree : degreeOption" *ngFor="let degreeOption of degrees; trackBy: trackDegreeById">{{degreeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.vacancy.consultingExperience" for="field_consultingExperience">Consulting Experience</label>
+            <select class="form-control" id="field_consultingExperience" name="consultingExperience" [(ngModel)]="vacancy.consultingExperience">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="consultingExperienceOption.id === vacancy.consultingExperience?.id ? vacancy.consultingExperience : consultingExperienceOption" *ngFor="let consultingExperienceOption of consultingexperiences; trackBy: trackConsultingExperienceById">{{consultingExperienceOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

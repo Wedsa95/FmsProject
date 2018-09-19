@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "jobseeker",
+            "otherEntityName": "jobseeker",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "emailAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emailType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065730",
+    "entityTableName": "email",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

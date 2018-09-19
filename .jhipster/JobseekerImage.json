@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "imageLink",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065722",
+    "entityTableName": "jobseeker_image",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

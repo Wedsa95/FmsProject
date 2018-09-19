@@ -1,0 +1,38 @@
+
+<div *ngIf="employeer">
+    <h2><span jhiTranslate="fmsApp.employeer.detail.title">Employeer</span> {{employeer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.employeer.employeerName">Employeer Name</span></dt>
+        <dd>
+            <span>{{employeer.employeerName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.employeer.lastActive">Last Active</span></dt>
+        <dd>
+            <span>{{employeer.lastActive | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.employeer.companyRegistrationNumber">Company Registration Number</span></dt>
+        <dd>
+            <span>{{employeer.companyRegistrationNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.employeer.user">User</span></dt>
+        <dd>
+            {{employeer.user?.id}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'employeer/'+ employeer.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

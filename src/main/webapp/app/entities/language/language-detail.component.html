@@ -1,0 +1,38 @@
+
+<div *ngIf="language">
+    <h2><span jhiTranslate="fmsApp.language.detail.title">Language</span> {{language.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.language.languageName">Language Name</span></dt>
+        <dd>
+            <span>{{language.languageName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.language.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="language.jobseeker">
+                <a [routerLink]="['/jobseeker', language.jobseeker?.id]">{{language.jobseeker?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.language.vacancy">Vacancy</span></dt>
+        <dd>
+            <div *ngIf="language.vacancy">
+                <a [routerLink]="['/vacancy', language.vacancy?.id]">{{language.vacancy?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'language/'+ language.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

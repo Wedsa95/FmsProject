@@ -1,0 +1,23 @@
+
+{
+    "fmsApp": {
+        "consultingExperience" : {
+            "home": {
+                "title": "Consulting Experiences",
+                "createLabel": "Skapa en ny Consulting Experience",
+                "createOrEditLabel": "Skapa eller ändra en Consulting Experience"
+            },
+            "created": "En ny Consulting Experience är skapad med id {{ param }}",
+            "updated": "En Consulting Experience är uppdaterad med id  {{ param }}",
+            "deleted": "En Consulting Experience är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Consulting Experience {{ id }}?"
+            },
+            "detail": {
+                "title": "Consulting Experience"
+            },
+            "yearsConsulting": "Years Consulting",
+            "jobseeker": "Jobseeker"
+        }
+    }
+}

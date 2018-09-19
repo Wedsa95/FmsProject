@@ -1,0 +1,36 @@
+
+{
+    "fmsApp": {
+        "vacancy" : {
+            "home": {
+                "title": "Vacancies",
+                "createLabel": "Skapa en ny Vacancy",
+                "createOrEditLabel": "Skapa eller ändra en Vacancy"
+            },
+            "created": "En ny Vacancy är skapad med id {{ param }}",
+            "updated": "En Vacancy är uppdaterad med id  {{ param }}",
+            "deleted": "En Vacancy är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Vacancy {{ id }}?"
+            },
+            "detail": {
+                "title": "Vacancy"
+            },
+            "uploadDate": "Upload Date",
+            "vacancieRole": "Vacancie Role",
+            "jobDescription": "Job Description",
+            "aspirantDescription": "Aspirant Description",
+            "aboutDescription": "About Description",
+            "contactPerson": "Contact Person",
+            "employeer": "Employeer",
+            "degree": "Degree",
+            "consultingExperience": "Consulting Experience",
+            "extents": "Extents",
+            "roles": "Roles",
+            "locations": "Locations",
+            "languages": "Languages",
+            "branches": "Branches",
+            "skills": "Skills"
+        }
+    }
+}

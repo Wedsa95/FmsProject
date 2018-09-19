@@ -1,0 +1,49 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySkillLabel" jhiTranslate="fmsApp.skill.home.createOrEditLabel">Create or edit a Skill</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!skill.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="skill.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.skill.skillName" for="field_skillName">Skill Name</label>
+            <input type="text" class="form-control" name="skillName" id="field_skillName"
+                [(ngModel)]="skill.skillName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.skill.skillLevel" for="field_skillLevel">Skill Level</label>
+            <input type="number" class="form-control" name="skillLevel" id="field_skillLevel"
+                [(ngModel)]="skill.skillLevel" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.skill.jobseeker" for="field_jobseeker">Jobseeker</label>
+            <select class="form-control" id="field_jobseeker" name="jobseeker" [(ngModel)]="skill.jobseeker" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jobseekerOption.id === skill.jobseeker?.id ? skill.jobseeker : jobseekerOption" *ngFor="let jobseekerOption of jobseekers; trackBy: trackJobseekerById">{{jobseekerOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.skill.vacancy" for="field_vacancy">Vacancy</label>
+            <select class="form-control" id="field_vacancy" name="vacancy" [(ngModel)]="skill.vacancy" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="vacancyOption.id === skill.vacancy?.id ? skill.vacancy : vacancyOption" *ngFor="let vacancyOption of vacancies; trackBy: trackVacancyById">{{vacancyOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

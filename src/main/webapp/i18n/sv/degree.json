@@ -1,0 +1,22 @@
+
+{
+    "fmsApp": {
+        "degree" : {
+            "home": {
+                "title": "Degrees",
+                "createLabel": "Skapa en ny Degree",
+                "createOrEditLabel": "Skapa eller ändra en Degree"
+            },
+            "created": "En ny Degree är skapad med id {{ param }}",
+            "updated": "En Degree är uppdaterad med id  {{ param }}",
+            "deleted": "En Degree är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Degree {{ id }}?"
+            },
+            "detail": {
+                "title": "Degree"
+            },
+            "degreeType": "Degree Type"
+        }
+    }
+}

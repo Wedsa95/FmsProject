@@ -1,0 +1,27 @@
+
+{
+    "fmsApp": {
+        "workExperience" : {
+            "home": {
+                "title": "Work Experiences",
+                "createLabel": "Create a new Work Experience",
+                "createOrEditLabel": "Create or edit a Work Experience"
+            },
+            "created": "A new Work Experience is created with identifier {{ param }}",
+            "updated": "A Work Experience is updated with identifier {{ param }}",
+            "deleted": "A Work Experience is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Work Experience {{ id }}?"
+            },
+            "detail": {
+                "title": "Work Experience"
+            },
+            "companyName": "Company Name",
+            "position": "Position",
+            "description": "Description",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "jobseeker": "Jobseeker"
+        }
+    }
+}

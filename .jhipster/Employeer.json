@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "employeer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "employeerCompliance",
+            "otherEntityName": "employeerCompliance",
+            "otherEntityRelationshipName": "employeer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "image",
+            "otherEntityName": "employeerImage",
+            "otherEntityRelationshipName": "employeer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vacancies",
+            "otherEntityName": "vacancy",
+            "otherEntityRelationshipName": "employeer"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "employeerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastActive",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "companyRegistrationNumber",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065714",
+    "entityTableName": "employeer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

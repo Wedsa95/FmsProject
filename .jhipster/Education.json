@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "jobseeker",
+            "otherEntityName": "jobseeker",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "degree",
+            "otherEntityName": "degree",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "education"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "institution",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "program",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20180912065732",
+    "entityTableName": "education",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

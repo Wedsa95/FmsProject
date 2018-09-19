@@ -1,0 +1,38 @@
+
+<div *ngIf="branch">
+    <h2><span jhiTranslate="fmsApp.branch.detail.title">Branch</span> {{branch.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.branch.branchName">Branch Name</span></dt>
+        <dd>
+            <span>{{branch.branchName}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.branch.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="branch.jobseeker">
+                <a [routerLink]="['/jobseeker', branch.jobseeker?.id]">{{branch.jobseeker?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.branch.vacancy">Vacancy</span></dt>
+        <dd>
+            <div *ngIf="branch.vacancy">
+                <a [routerLink]="['/vacancy', branch.vacancy?.id]">{{branch.vacancy?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'branch/'+ branch.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,98 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myJobseekerLabel" jhiTranslate="fmsApp.jobseeker.home.createOrEditLabel">Create or edit a Jobseeker</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!jobseeker.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="jobseeker.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.regestrationDate" for="field_regestrationDate">Regestration Date</label>
+            <div class="input-group">
+                <input id="field_regestrationDate" type="text" class="form-control" name="regestrationDate" ngbDatepicker  #regestrationDateDp="ngbDatepicker" [(ngModel)]="jobseeker.regestrationDate"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="regestrationDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.birthYear" for="field_birthYear">Birth Year</label>
+            <div class="input-group">
+                <input id="field_birthYear" type="text" class="form-control" name="birthYear" ngbDatepicker  #birthYearDp="ngbDatepicker" [(ngModel)]="jobseeker.birthYear"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="birthYearDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                [(ngModel)]="jobseeker.firstName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                [(ngModel)]="jobseeker.lastName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.unemployed" for="field_unemployed">Unemployed</label>
+            <input type="checkbox" class="form-control" name="unemployed" id="field_unemployed"
+                [(ngModel)]="jobseeker.unemployed" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.lastActive" for="field_lastActive">Last Active</label>
+            <div class="input-group">
+                <input id="field_lastActive" type="text" class="form-control" name="lastActive" ngbDatepicker  #lastActiveDp="ngbDatepicker" [(ngModel)]="jobseeker.lastActive"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="lastActiveDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="jobseeker.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === jobseeker.user?.id ? jobseeker.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.image" for="field_image">Image</label>
+            <select class="form-control" id="field_image" name="image" [(ngModel)]="jobseeker.image">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jobseekerImageOption.id === jobseeker.image?.id ? jobseeker.image : jobseekerImageOption" *ngFor="let jobseekerImageOption of images; trackBy: trackJobseekerImageById">{{jobseekerImageOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.video" for="field_video">Video</label>
+            <select class="form-control" id="field_video" name="video" [(ngModel)]="jobseeker.video">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jobseekerVideoOption.id === jobseeker.video?.id ? jobseeker.video : jobseekerVideoOption" *ngFor="let jobseekerVideoOption of videos; trackBy: trackJobseekerVideoById">{{jobseekerVideoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="fmsApp.jobseeker.presentation" for="field_presentation">Presentation</label>
+            <select class="form-control" id="field_presentation" name="presentation" [(ngModel)]="jobseeker.presentation">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="presentationOption.id === jobseeker.presentation?.id ? jobseeker.presentation : presentationOption" *ngFor="let presentationOption of presentations; trackBy: trackPresentationById">{{presentationOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

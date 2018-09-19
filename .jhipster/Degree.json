@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "degreeType",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065733",
+    "entityTableName": "degree",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

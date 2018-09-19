@@ -1,0 +1,64 @@
+
+<div *ngIf="vacancy">
+    <h2><span jhiTranslate="fmsApp.vacancy.detail.title">Vacancy</span> {{vacancy.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.vacancy.uploadDate">Upload Date</span></dt>
+        <dd>
+            <span>{{vacancy.uploadDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.vacancieRole">Vacancie Role</span></dt>
+        <dd>
+            <span>{{vacancy.vacancieRole}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.jobDescription">Job Description</span></dt>
+        <dd>
+            <span>{{vacancy.jobDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.aspirantDescription">Aspirant Description</span></dt>
+        <dd>
+            <span>{{vacancy.aspirantDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.aboutDescription">About Description</span></dt>
+        <dd>
+            <span>{{vacancy.aboutDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.contactPerson">Contact Person</span></dt>
+        <dd>
+            <span>{{vacancy.contactPerson}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.employeer">Employeer</span></dt>
+        <dd>
+            <div *ngIf="vacancy.employeer">
+                <a [routerLink]="['/employeer', vacancy.employeer?.id]">{{vacancy.employeer?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.degree">Degree</span></dt>
+        <dd>
+            <div *ngIf="vacancy.degree">
+                <a [routerLink]="['/degree', vacancy.degree?.id]">{{vacancy.degree?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.consultingExperience">Consulting Experience</span></dt>
+        <dd>
+            <div *ngIf="vacancy.consultingExperience">
+                <a [routerLink]="['/consulting-experience', vacancy.consultingExperience?.id]">{{vacancy.consultingExperience?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vacancy/'+ vacancy.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

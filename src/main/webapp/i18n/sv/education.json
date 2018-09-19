@@ -1,0 +1,27 @@
+
+{
+    "fmsApp": {
+        "education" : {
+            "home": {
+                "title": "Educations",
+                "createLabel": "Skapa en ny Education",
+                "createOrEditLabel": "Skapa eller ändra en Education"
+            },
+            "created": "En ny Education är skapad med id {{ param }}",
+            "updated": "En Education är uppdaterad med id  {{ param }}",
+            "deleted": "En Education är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Education {{ id }}?"
+            },
+            "detail": {
+                "title": "Education"
+            },
+            "institution": "Institution",
+            "program": "Program",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "jobseeker": "Jobseeker",
+            "degree": "Degree"
+        }
+    }
+}

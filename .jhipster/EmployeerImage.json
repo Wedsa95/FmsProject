@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "employeer",
+            "otherEntityName": "employeer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "imageLink",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065717",
+    "entityTableName": "employeer_image",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

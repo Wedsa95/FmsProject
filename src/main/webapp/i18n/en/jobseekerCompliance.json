@@ -1,0 +1,24 @@
+
+{
+    "fmsApp": {
+        "jobseekerCompliance" : {
+            "home": {
+                "title": "Jobseeker Compliances",
+                "createLabel": "Create a new Jobseeker Compliance",
+                "createOrEditLabel": "Create or edit a Jobseeker Compliance"
+            },
+            "created": "A new Jobseeker Compliance is created with identifier {{ param }}",
+            "updated": "A Jobseeker Compliance is updated with identifier {{ param }}",
+            "deleted": "A Jobseeker Compliance is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Jobseeker Compliance {{ id }}?"
+            },
+            "detail": {
+                "title": "Jobseeker Compliance"
+            },
+            "dateCompliance": "Date Compliance",
+            "answerCompliance": "Answer Compliance",
+            "jobseeker": "Jobseeker"
+        }
+    }
+}

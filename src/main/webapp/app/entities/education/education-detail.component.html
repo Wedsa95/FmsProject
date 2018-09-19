@@ -1,0 +1,50 @@
+
+<div *ngIf="education">
+    <h2><span jhiTranslate="fmsApp.education.detail.title">Education</span> {{education.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.education.institution">Institution</span></dt>
+        <dd>
+            <span>{{education.institution}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.education.program">Program</span></dt>
+        <dd>
+            <span>{{education.program}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.education.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{education.startDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.education.endDate">End Date</span></dt>
+        <dd>
+            <span>{{education.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.education.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="education.jobseeker">
+                <a [routerLink]="['/jobseeker', education.jobseeker?.id]">{{education.jobseeker?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.education.degree">Degree</span></dt>
+        <dd>
+            <div *ngIf="education.degree">
+                <a [routerLink]="['/degree', education.degree?.id]">{{education.degree?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'education/'+ education.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,98 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "employeer",
+            "otherEntityName": "employeer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "degree",
+            "otherEntityName": "degree",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "consultingExperience",
+            "otherEntityName": "consultingExperience",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "extents",
+            "otherEntityName": "extent",
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "roles",
+            "otherEntityName": "role",
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locations",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "languages",
+            "otherEntityName": "language",
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "branches",
+            "otherEntityName": "branch",
+            "otherEntityRelationshipName": "vacancy"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "skills",
+            "otherEntityName": "skill",
+            "otherEntityRelationshipName": "vacancy"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "uploadDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "vacancieRole",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "jobDescription",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "aspirantDescription",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "aboutDescription",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "contactPerson",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180912065715",
+    "entityTableName": "vacancy",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

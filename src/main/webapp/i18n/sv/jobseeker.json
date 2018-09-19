@@ -1,0 +1,44 @@
+
+{
+    "fmsApp": {
+        "jobseeker" : {
+            "home": {
+                "title": "Jobseekers",
+                "createLabel": "Skapa en ny Jobseeker",
+                "createOrEditLabel": "Skapa eller ändra en Jobseeker"
+            },
+            "created": "En ny Jobseeker är skapad med id {{ param }}",
+            "updated": "En Jobseeker är uppdaterad med id  {{ param }}",
+            "deleted": "En Jobseeker är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Jobseeker {{ id }}?"
+            },
+            "detail": {
+                "title": "Jobseeker"
+            },
+            "regestrationDate": "Regestration Date",
+            "birthYear": "Birth Year",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "unemployed": "Unemployed",
+            "lastActive": "Last Active",
+            "user": "User",
+            "image": "Image",
+            "video": "Video",
+            "presentation": "Presentation",
+            "skills": "Skills",
+            "branches": "Branches",
+            "languages": "Languages",
+            "locations": "Locations",
+            "consultingExperience": "Consulting Experience",
+            "roles": "Roles",
+            "emails": "Emails",
+            "phonenumbers": "Phonenumbers",
+            "experience": "Experience",
+            "jobseekerCompliance": "Jobseeker Compliance",
+            "educations": "Educations",
+            "workExperiences": "Work Experiences",
+            "references": "References"
+        }
+    }
+}

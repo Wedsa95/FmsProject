@@ -1,0 +1,28 @@
+
+{
+    "fmsApp": {
+        "employeer" : {
+            "home": {
+                "title": "Employeers",
+                "createLabel": "Skapa en ny Employeer",
+                "createOrEditLabel": "Skapa eller ändra en Employeer"
+            },
+            "created": "En ny Employeer är skapad med id {{ param }}",
+            "updated": "En Employeer är uppdaterad med id  {{ param }}",
+            "deleted": "En Employeer är borttagen med id  {{ param }}",
+            "delete": {
+                "question": "Är du säker på att du vill ta bort Employeer {{ id }}?"
+            },
+            "detail": {
+                "title": "Employeer"
+            },
+            "employeerName": "Employeer Name",
+            "lastActive": "Last Active",
+            "companyRegistrationNumber": "Company Registration Number",
+            "user": "User",
+            "employeerCompliance": "Employeer Compliance",
+            "image": "Image",
+            "vacancies": "Vacancies"
+        }
+    }
+}

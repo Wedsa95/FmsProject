@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="fmsApp.jobseekerCompliance.home.title">Jobseeker Compliances</span>
+        <button class="btn btn-primary float-right jh-create-entity create-jobseeker-compliance" [routerLink]="['/', { outlets: { popup: ['jobseeker-compliance-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="fmsApp.jobseekerCompliance.home.createLabel">
+            Create new Jobseeker Compliance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="jobseekerCompliances">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="fmsApp.jobseekerCompliance.dateCompliance">Date Compliance</span></th>
+            <th><span jhiTranslate="fmsApp.jobseekerCompliance.answerCompliance">Answer Compliance</span></th>
+            <th><span jhiTranslate="fmsApp.jobseekerCompliance.jobseeker">Jobseeker</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let jobseekerCompliance of jobseekerCompliances ;trackBy: trackId">
+                <td><a [routerLink]="['../jobseeker-compliance', jobseekerCompliance.id ]">{{jobseekerCompliance.id}}</a></td>
+                <td>{{jobseekerCompliance.dateCompliance | date:'mediumDate'}}</td>
+                <td>{{jobseekerCompliance.answerCompliance}}</td>
+                <td>
+                    <div *ngIf="jobseekerCompliance.jobseeker">
+                        <a [routerLink]="['../jobseeker', jobseekerCompliance.jobseeker?.id ]" >{{jobseekerCompliance.jobseeker?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../jobseeker-compliance', jobseekerCompliance.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'jobseeker-compliance/'+ jobseekerCompliance.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'jobseeker-compliance/'+ jobseekerCompliance.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

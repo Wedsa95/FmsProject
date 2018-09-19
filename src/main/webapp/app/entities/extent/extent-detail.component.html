@@ -1,0 +1,38 @@
+
+<div *ngIf="extent">
+    <h2><span jhiTranslate="fmsApp.extent.detail.title">Extent</span> {{extent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.extent.extentDescription">Extent Description</span></dt>
+        <dd>
+            <span>{{extent.extentDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.extent.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="extent.jobseeker">
+                <a [routerLink]="['/jobseeker', extent.jobseeker?.id]">{{extent.jobseeker?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.extent.vacancy">Vacancy</span></dt>
+        <dd>
+            <div *ngIf="extent.vacancy">
+                <a [routerLink]="['/vacancy', extent.vacancy?.id]">{{extent.vacancy?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'extent/'+ extent.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

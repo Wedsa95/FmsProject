@@ -1,0 +1,36 @@
+
+{
+    "fmsApp": {
+        "vacancy" : {
+            "home": {
+                "title": "Vacancies",
+                "createLabel": "Create a new Vacancy",
+                "createOrEditLabel": "Create or edit a Vacancy"
+            },
+            "created": "A new Vacancy is created with identifier {{ param }}",
+            "updated": "A Vacancy is updated with identifier {{ param }}",
+            "deleted": "A Vacancy is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vacancy {{ id }}?"
+            },
+            "detail": {
+                "title": "Vacancy"
+            },
+            "uploadDate": "Upload Date",
+            "vacancieRole": "Vacancie Role",
+            "jobDescription": "Job Description",
+            "aspirantDescription": "Aspirant Description",
+            "aboutDescription": "About Description",
+            "contactPerson": "Contact Person",
+            "employeer": "Employeer",
+            "degree": "Degree",
+            "consultingExperience": "Consulting Experience",
+            "extents": "Extents",
+            "roles": "Roles",
+            "locations": "Locations",
+            "languages": "Languages",
+            "branches": "Branches",
+            "skills": "Skills"
+        }
+    }
+}

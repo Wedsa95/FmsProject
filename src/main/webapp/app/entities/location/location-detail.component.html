@@ -1,0 +1,38 @@
+
+<div *ngIf="location">
+    <h2><span jhiTranslate="fmsApp.location.detail.title">Location</span> {{location.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.location.county">County</span></dt>
+        <dd>
+            <span>{{location.county}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.location.jobseeker">Jobseeker</span></dt>
+        <dd>
+            <div *ngIf="location.jobseeker">
+                <a [routerLink]="['/jobseeker', location.jobseeker?.id]">{{location.jobseeker?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.location.vacancy">Vacancy</span></dt>
+        <dd>
+            <div *ngIf="location.vacancy">
+                <a [routerLink]="['/vacancy', location.vacancy?.id]">{{location.vacancy?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'location/'+ location.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
