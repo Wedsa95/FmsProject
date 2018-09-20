@@ -36,6 +36,12 @@
                         </a>
                     </li>
                     <li>
+                        <a class="dropdown-item" routerLink="employeer-profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span>Employeer Profile</span>
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" routerLink="jobseeker" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                             <span jhiTranslate="global.menu.entities.jobseeker">Jobseeker</span>

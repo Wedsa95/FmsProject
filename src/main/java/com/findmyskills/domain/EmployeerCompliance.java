@@ -3,6 +3,9 @@ package com.findmyskills.domain;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -30,6 +33,7 @@ public class EmployeerCompliance implements Serializable {
     private Boolean answerCompliance;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Employeer employeer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -67,6 +71,7 @@ public class EmployeerCompliance implements Serializable {
         this.answerCompliance = answerCompliance;
     }
 
+    @JsonIgnore
     public Employeer getEmployeer() {
         return employeer;
     }

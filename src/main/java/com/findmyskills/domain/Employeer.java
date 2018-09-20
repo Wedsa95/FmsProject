@@ -1,6 +1,8 @@
 package com.findmyskills.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -34,23 +36,25 @@ public class Employeer implements Serializable {
 
     @Column(name = "company_registration_number")
     private String companyRegistrationNumber;
-
+    
+//    @OneToOne
+//    @JoinColumn(unique = true)
+//    private EmployeerImage image;
+    
     @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @JoinColumn(unique = true)
     private User user;
 
-    @OneToMany(mappedBy = "employeer")
-    @JsonIgnore
+    @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<EmployeerCompliance> employeerCompliances = new HashSet<>();
 
-    @OneToMany(mappedBy = "employeer")
-    @JsonIgnore
+    @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<EmployeerImage> images = new HashSet<>();
 
-    @OneToMany(mappedBy = "employeer")
-    @JsonIgnore
+    @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Vacancy> vacancies = new HashSet<>();
 
@@ -102,6 +106,7 @@ public class Employeer implements Serializable {
         this.companyRegistrationNumber = companyRegistrationNumber;
     }
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }
@@ -165,7 +170,15 @@ public class Employeer implements Serializable {
         this.images = employeerImages;
     }
 
-    public Set<Vacancy> getVacancies() {
+//    public EmployeerImage getImage() {
+//		return image;
+//	}
+//
+//	public void setImage(EmployeerImage image) {
+//		this.image = image;
+//	}
+
+	public Set<Vacancy> getVacancies() {
         return vacancies;
     }
 

@@ -1,6 +1,8 @@
 package com.findmyskills.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -48,6 +50,7 @@ public class Vacancy implements Serializable {
     private String contactPerson;
 
     @ManyToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Employeer employeer;
 
     @OneToOne
@@ -175,6 +178,7 @@ public class Vacancy implements Serializable {
         this.contactPerson = contactPerson;
     }
 
+    @JsonIgnore
     public Employeer getEmployeer() {
         return employeer;
     }

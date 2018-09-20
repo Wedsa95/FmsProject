@@ -113,7 +113,7 @@ public class JobseekerResource {
     @Timed
     public ResponseEntity<Jobseeker> getCurrentUserJobseeker() {
     	Jobseeker jobseeker = jobseekerRepository.findByUserIsCurrentUser();
-        log.debug("REST request to get Jobseeker : {}");
+        log.debug("REST request to get Jobseeker : {}", jobseeker.toString());
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(jobseeker));
     }
 

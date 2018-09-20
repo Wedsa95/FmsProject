@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FmsAppJobseekerModule } from './jobseeker/jobseeker.module';
 import { FmsAppJobseekerProfileModule } from './jobseeker-profile/jobseeker-profile.module';
 import { FmsAppEmployeerModule } from './employeer/employeer.module';
+import { FmsAppEmployeerProfileModule } from './employeer-profile/employeer-profile.module';
 import { FmsAppVacancyModule } from './vacancy/vacancy.module';
 import { FmsAppEmployeerComplianceModule } from './employeer-compliance/employeer-compliance.module';
 import { FmsAppEmployeerImageModule } from './employeer-image/employeer-image.module';
@@ -30,6 +31,7 @@ import { FmsAppWorkExperienceModule } from './work-experience/work-experience.mo
         FmsAppJobseekerModule,
         FmsAppJobseekerProfileModule,
         FmsAppEmployeerModule,
+        FmsAppEmployeerProfileModule,
         FmsAppVacancyModule,
         FmsAppEmployeerComplianceModule,
         FmsAppEmployeerImageModule,

@@ -18,25 +18,30 @@
     </div>
     <div class="row">
     	<div class="col-sm-8">
-    	<div *ngIf="jobseeker.workExperiences">
-    			<div class="card"*ngFor="let workExperience of jobseeker.workExperiences">
-  					<div class="card-body">
-	    				<h5 class="card-title">{{workExperience.companyName}}</h5>
-	    				<h6 class="card-subtitle mb-2 text-muted">{{workExperience.position}} <span>{{workExperience.startDate | date:'dd/MM/yy'}} - {{workExperience.endDate | date:'dd/MM/yy'}}</span></h6>
-	    				<p class="card-text">{{workExperience.description}}</p>
-  					</div>
-				</div>
-    	</div>
-    	<div *ngIf="jobseeker.educations">
-    			<div class="card" *ngFor="let education of jobseeker.educations">
-  					<div class="card-body">
-	    				<h5 class="card-title">{{education.institution}}</h5>
-	    				<h6 class="card-subtitle mb-2 text-muted">{{education.program}} - {{education.degree.degreeType}} degree <span>{{education.startDate | date:'dd/MM/yy'}} - {{education.endDate | date:'dd/MM/yy'}}</span></h6>
-  					</div>
-				</div>
-    	</div>
+    	<!-- Main content -->
+	    	<div *ngIf="jobseeker.workExperiences">
+	    			<div class="card"*ngFor="let workExperience of jobseeker.workExperiences">
+	  					<div class="card-body">
+		    				<h5 class="card-title">{{workExperience.companyName}}</h5>
+		    				<h6 class="card-subtitle mb-2 text-muted">{{workExperience.position}} <span>{{workExperience.startDate | date:'dd/MM/yy'}} - {{workExperience.endDate | date:'dd/MM/yy'}}</span></h6>
+		    				<p class="card-text">{{workExperience.description}}</p>
+	  					</div>
+					</div>
+					<br>
+	    	</div>
+	    	<div *ngIf="jobseeker.educations">
+	    			<div class="card" *ngFor="let education of jobseeker.educations">
+	  					<div class="card-body">
+		    				<h5 class="card-title">{{education.institution}}</h5>
+		    				<h6 class="card-subtitle mb-2 text-muted">{{education.program}} - {{education.degree.degreeType}} degree <span>{{education.startDate | date:'dd/MM/yy'}} - {{education.endDate | date:'dd/MM/yy'}}</span></h6>
+	  					</div>
+					</div>
+					<br>
+	    	</div>
+    	<!-- END Main content -->
     	</div>
     	<div class="col-sm-4">
+    	<!-- Side content -->
     		<div *ngIf="jobseeker.consultingExperiences">
     			<div class="card">
     				<div class="card-header">Consulting experience in years</div>
@@ -63,6 +68,16 @@
 				  	</ul>
 				</div>
     		</div>
+    		<br>
+    		<div *ngIf="jobseeker.roles">
+    			<div class="card">
+    				<div class="card-header">Previus roles</div>
+				  	<ul class="list-group list-group-flush" *ngFor="let role of jobseeker.roles">
+				    	<li class="list-group-item">{{role.roleName}}</li>
+				  	</ul>
+				</div>
+    		</div>
+    	<!-- END Side content -->
     	</div>    	
     </div>
     <br/>
@@ -146,3 +161,4 @@
         </table>
     </div>
     -->
+</div>

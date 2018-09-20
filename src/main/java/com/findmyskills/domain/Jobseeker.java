@@ -46,7 +46,8 @@ public class Jobseeker implements Serializable {
     @Column(name = "last_active")
     private LocalDate lastActive;
     
-    //JsonProperty dose so the that 
+    //JsonProperty so that you can not retrieve 
+    // the user in this way, but you can set a new one
     @OneToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @JoinColumn(unique = true)

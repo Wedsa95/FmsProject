@@ -102,7 +102,21 @@ public class EmployeerResource {
         Employeer employeer = employeerRepository.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(employeer));
     }
-
+    
+    /**
+     * GET  /employeers/:id : get the "id" employeer.
+     *
+     * @param id the id of the employeer to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the employeer, or with status 404 (Not Found)
+     */
+    @GetMapping("/employeer")
+    @Timed
+    public ResponseEntity<Employeer> getCurrentEmployeer() {
+        Employeer employeer = employeerRepository.findByUserIsCurrentUser();
+        log.debug("REST request to get current Employeer : {}", employeer.toString());
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(employeer));
+    }
+    
     /**
      * DELETE  /employeers/:id : delete the "id" employeer.
      *
