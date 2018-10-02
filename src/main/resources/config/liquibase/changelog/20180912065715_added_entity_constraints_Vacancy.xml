@@ -14,17 +14,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="employeer"/>
 
-        <addForeignKeyConstraint baseColumnNames="degree_id"
-                                 baseTableName="vacancy"
-                                 constraintName="fk_vacancy_degree_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="degree"/>
-
-        <addForeignKeyConstraint baseColumnNames="consulting_experience_id"
-                                 baseTableName="vacancy"
-                                 constraintName="fk_vacancy_consulting_experience_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="consulting_experience"/>
-
     </changeSet>
 </databaseChangeLog>

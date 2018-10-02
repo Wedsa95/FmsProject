@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity JobseekerHaveConsultingExperience.
     -->
-    <changeSet id="20181002065751-2" author="jhipster">
+    <changeSet id="20181002065752-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="jobseeker_id"
                                  baseTableName="jobseeker_have_consulting_experience"
@@ -14,11 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jobseeker"/>
 
-        <addForeignKeyConstraint baseColumnNames="vacancy_id"
+        <addForeignKeyConstraint baseColumnNames="consulting_experience_id"
                                  baseTableName="jobseeker_have_consulting_experience"
-                                 constraintName="fk_vacancies_wants_consulting_experience_vacancy_id"
+                                 constraintName="fk_jobseeker_have_consulting_experience_consulting_experience_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="vacancy"/>
+                                 referencedTableName="consulting_experience"/>
 
     </changeSet>
 </databaseChangeLog>

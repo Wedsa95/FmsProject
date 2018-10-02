@@ -49,12 +49,6 @@
             <column name="employeer_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="degree_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            
-            <column name="consulting_experience_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

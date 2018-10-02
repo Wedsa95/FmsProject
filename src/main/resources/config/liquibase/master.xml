@@ -42,6 +42,9 @@
     <include file="config/liquibase/changelog/20180924065747_added_entity_VacanciesNeedsSkills.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180924065748_added_entity_VacanciesWantsBranch.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180924065749_added_entity_JobseekerPrefersBranch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181002065750_added_entity_EmployeerHaveVacancies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181002065751_added_entity_VacanciesWantsConsultingExperience.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181002065752_added_entity_JobseekerHaveConsultingExperience.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180912065713_added_entity_constraints_Jobseeker.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065714_added_entity_constraints_Employeer.xml" relativeToChangelogFile="false"/>
@@ -75,6 +78,9 @@
     <include file="config/liquibase/changelog/20180924065746_added_entity_constraints_JobseekerHasSkills.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180924065747_added_entity_constraints_VacanciesNeedsSkills.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180924065748_added_entity_constraints_VacanciesWantsBranch.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20180924065749_added_entity_constraints_JobseekerPrefersBranch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065749_added_entity_constraints_JobseekerPrefersBranch.xml" relativeToChangelogFile="false"/>   
+    <include file="config/liquibase/changelog/20181002065750_added_entity_constraints_EmployeerHaveVacancies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181002065751_added_entity_constraints_VacanciesWantsConsultingExperience.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181002065752_added_entity_constraints_JobseekerHaveConsultingExperience.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
