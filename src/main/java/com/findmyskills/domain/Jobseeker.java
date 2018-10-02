@@ -65,19 +65,31 @@ public class Jobseeker implements Serializable {
     @JoinColumn(unique = true)
     private Presentation presentation;
 
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "jobseeker_has_skills", 
+    	joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+    	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Skill> skills = new HashSet<>();
 
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "jobseeker_prefers_branch", 
+    	      joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+    	      inverseJoinColumns = @JoinColumn(name = "branch_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Branch> branches = new HashSet<>();
 
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "jobseeker_speeks_languages", 
+    	joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+    	inverseJoinColumns = @JoinColumn(name = "language_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Language> languages = new HashSet<>();
 
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "jobseeker_prefers_work_in", 
+		joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Location> locations = new HashSet<>();
 
@@ -85,21 +97,27 @@ public class Jobseeker implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ConsultingExperience> consultingExperiences = new HashSet<>();
 
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "jobseeker_worked_as_roles", 
+		joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "jobseeker_want_extent", 
+		joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "extent_id", referencedColumnName = "id"))
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Extent> experiences = new HashSet<>();
+    
     @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Email> emails = new HashSet<>();
-
+        
     @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PhoneNumber> phonenumbers = new HashSet<>();
-
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Extent> experiences = new HashSet<>();
 
     @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)

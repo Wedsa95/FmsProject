@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { FmsAppSharedModule } from '../../shared';
 import { FmsAppAdminModule } from '../../admin/admin.module';
+import { DurationPipe } from '../../shared/util-pipes/duration.pipe';
 import {
     JobseekerProfileService,
     JobseekerProfilePopupService,
@@ -33,6 +34,7 @@ const ENTITY_STATES = [
         JobseekerProfileDialogComponent,
         JobseekerProfileDeleteDialogComponent,
         JobseekerPopupComponent,
+        DurationPipe,
         JobseekerDeletePopupComponent,
     ],
     entryComponents: [

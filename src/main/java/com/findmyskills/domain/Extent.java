@@ -29,10 +29,16 @@ public class Extent implements Serializable {
     private String extentDescription;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_want_extent", 
+		joinColumns = @JoinColumn(name = "extent_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
 
     @ManyToOne
+    @JoinTable(name = "vacancies_have_extent", 
+		joinColumns = @JoinColumn(name = "extent_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Vacancy vacancy;
 

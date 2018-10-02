@@ -7,18 +7,6 @@
         Added the constraints for entity Skill.
     -->
     <changeSet id="20180912065725-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="jobseeker_id"
-                                 baseTableName="skill"
-                                 constraintName="fk_skill_jobseeker_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jobseeker"/>
-
-        <addForeignKeyConstraint baseColumnNames="vacancy_id"
-                                 baseTableName="skill"
-                                 constraintName="fk_skill_vacancy_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="vacancy"/>
 
     </changeSet>
 </databaseChangeLog>

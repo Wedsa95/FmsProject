@@ -28,14 +28,20 @@ public class Skill implements Serializable {
     @Column(name = "skill_name")
     private String skillName;
 
-    @Column(name = "skill_level")
-    private Integer skillLevel;
+//    @Column(name = "skill_level")
+//    private Integer skillLevel;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_has_skills", 
+		joinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
 
     @ManyToOne
+    @JoinTable(name = "vacancies_needs_skills", 
+		joinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Vacancy vacancy;
 
@@ -61,18 +67,18 @@ public class Skill implements Serializable {
         this.skillName = skillName;
     }
 
-    public Integer getSkillLevel() {
-        return skillLevel;
-    }
-
-    public Skill skillLevel(Integer skillLevel) {
-        this.skillLevel = skillLevel;
-        return this;
-    }
-
-    public void setSkillLevel(Integer skillLevel) {
-        this.skillLevel = skillLevel;
-    }
+//    public Integer getSkillLevel() {
+//        return skillLevel;
+//    }
+//
+//    public Skill skillLevel(Integer skillLevel) {
+//        this.skillLevel = skillLevel;
+//        return this;
+//    }
+//
+//    public void setSkillLevel(Integer skillLevel) {
+//        this.skillLevel = skillLevel;
+//    }
 
     @JsonIgnore
     public Jobseeker getJobseeker() {
@@ -128,7 +134,7 @@ public class Skill implements Serializable {
         return "Skill{" +
             "id=" + getId() +
             ", skillName='" + getSkillName() + "'" +
-            ", skillLevel=" + getSkillLevel() +
+            ", skillLevel=" + //getSkillLevel() +
             "}";
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity VacanciesNeedsDegree.
+    -->
+    <changeSet id="20180924065743-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="degree_id"
+                                 baseTableName="vacancies_needs_degree"
+                                 constraintName="fk_vacancies_needs_degree_degree_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="degree"/>
+
+        <addForeignKeyConstraint baseColumnNames="vacancy_id"
+                                 baseTableName="vacancies_needs_degree"
+                                 constraintName="fk_vacancies_needs_degree_vacancy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vacancy"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -54,6 +54,9 @@ public class Vacancy implements Serializable {
     private Employeer employeer;
 
     @OneToOne
+    @JoinTable(name = "vacancies_needs_degree", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "degree_id", referencedColumnName = "id"))
     @JoinColumn(unique = true)
     private Degree degree;
 
@@ -61,33 +64,45 @@ public class Vacancy implements Serializable {
     @JoinColumn(unique = true)
     private ConsultingExperience consultingExperience;
 
-    @OneToMany(mappedBy = "vacancy")
-    @JsonIgnore
+    @OneToMany
+    @JoinTable(name = "vacancies_have_extent", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "extent_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Extent> extents = new HashSet<>();
 
-    @OneToMany(mappedBy = "vacancy")
-    @JsonIgnore
+    @OneToMany
+    @JoinTable(name = "vacancie_needs_roles", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany(mappedBy = "vacancy")
-    @JsonIgnore
+    @OneToMany
+    @JoinTable(name = "vacancies_have_location", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Location> locations = new HashSet<>();
 
-    @OneToMany(mappedBy = "vacancy")
-    @JsonIgnore
+    @OneToMany
+    @JoinTable(name = "vacancies_needs_languages", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "language_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Language> languages = new HashSet<>();
 
-    @OneToMany(mappedBy = "vacancy")
-    @JsonIgnore
+    @OneToMany
+    @JoinTable(name = "vacancies_wants_branch", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "branch_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Branch> branches = new HashSet<>();
 
-    @OneToMany(mappedBy = "vacancy")
-    @JsonIgnore
+    @OneToMany
+    @JoinTable(name = "vacancies_needs_skills", 
+    	joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+    	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Skill> skills = new HashSet<>();
 

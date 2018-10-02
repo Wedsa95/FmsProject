@@ -4,10 +4,11 @@ import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Jobseeker } from './jobseeker-profile.model';
+import { Education } from '../education/education.model';
 import { JobseekerProfileService } from './jobseeker-profile.service';
 import { Principal } from '../../shared';
 import { WorkExperience } from '../work-experience/work-experience.model';
-
+import { DurationPipe } from '../../shared/util-pipes/duration.pipe';
 @Component({
     selector: 'jhi-jobseeker',
     templateUrl: './jobseeker-profile.component.html'
@@ -16,6 +17,8 @@ export class JobseekerProfileComponent implements OnInit, OnDestroy {
     jobseeker: Jobseeker;
     currentAccount: any;
     eventSubscriber: Subscription;
+    educationDuration: any[];
+    workExperienceDurration: any[];
 
     constructor(
         private jobseekerService: JobseekerProfileService,
@@ -40,7 +43,6 @@ export class JobseekerProfileComponent implements OnInit, OnDestroy {
         });
         this.registerChangeInJobseekers();
     }
-
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);
     }

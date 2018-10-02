@@ -29,10 +29,16 @@ public class Language implements Serializable {
     private String languageName;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_speeks_languages", 
+		joinColumns = @JoinColumn(name = "language_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
 
     @ManyToOne
+    @JoinTable(name = "vacancies_needs_languages", 
+		joinColumns = @JoinColumn(name = "language_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Vacancy vacancy;
 

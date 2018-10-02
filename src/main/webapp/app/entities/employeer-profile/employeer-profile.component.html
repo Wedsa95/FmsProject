@@ -1,13 +1,62 @@
 <div>
 	<jhi-alert></jhi-alert>
 	<div class="row" *ngIf="employeer">
-		<div class="col-sm">
-		</div>
-		<div class="col-sm">
-			<h3>{{employeer}}</h3>
+        <div class="col-sm-3" *ngIf="employeer.image; else noImage">
+            <a [routerLink]="['../employeer-image', employeer.image?.id ]" >{{jobseeker.image?.id}}</a>
+        </div>
+        <ng-template #noImage>
+            <div class="col-sm-3">
+                <button type="submit" 
+                    class="btn btn-light btn-sm">
+                    <span class="fa fa-picture-o"></span>
+                    <span class="d-none d-md-inline">Add Logo</span>
+                </button>
+            </div>
+        </ng-template>
+		<div class="col-sm-9">
+            <h6>CRN: {{employeer.companyRegistrationNumber}}</h6>
             <h3>{{employeer.employeerName}}</h3>
 		</div>
 	</div>
+    <div class="row" *ngIf="employeer">
+        <div class="col-sm" *ngIf="employeer.image; else changeLogo">
+            <button type="submit" 
+                class="btn btn-light btn-sm">
+                <span class="fa fa-picture-o"></span>
+                <span class="d-none d-md-inline">Change Logo</span>
+            </button>
+        </div>
+        <ng-template #changeLogo>
+            <div class="col-sm">
+            </div>
+        </ng-template>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <div *ngIf="employeer.vacancies">
+                <div class="card"*ngFor="let vacancie of employeer.vacancies">
+                    <div class="card-body">
+                        <h5 class="card-title">{{vacancie.vacancieRole}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{vacancie.uploadDate}}</h6>
+                        <p class="card-text">{{vacancie.jobDescription | slice:0:140}}</p>
+                        <p class="card-text">Contact Person: {{vacancie.contactPerson}}
+                            <button type="submit" class="btn btn-light btn-sm float-right">
+                                <span class="fa fa-pencil-square-o"></span>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            <br>
+            </div>
+                <button type="submit" 
+                    class="btn btn-light btn-sm">
+                    <span class="fa fa-briefcase"></span>
+                    <span class="d-none d-md-inline">Add Vacancy</span>
+                </button>
+        </div>
+    </div>
 <!-- 
     <h2>
         <span jhiTranslate="fmsApp.employeer.home.title">Employeers</span>

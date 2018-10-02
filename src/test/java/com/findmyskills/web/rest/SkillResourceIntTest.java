@@ -82,8 +82,8 @@ public class SkillResourceIntTest {
      */
     public static Skill createEntity(EntityManager em) {
         Skill skill = new Skill()
-            .skillName(DEFAULT_SKILL_NAME)
-            .skillLevel(DEFAULT_SKILL_LEVEL);
+            .skillName(DEFAULT_SKILL_NAME);
+            //.skillLevel(DEFAULT_SKILL_LEVEL);
         return skill;
     }
 
@@ -108,7 +108,7 @@ public class SkillResourceIntTest {
         assertThat(skillList).hasSize(databaseSizeBeforeCreate + 1);
         Skill testSkill = skillList.get(skillList.size() - 1);
         assertThat(testSkill.getSkillName()).isEqualTo(DEFAULT_SKILL_NAME);
-        assertThat(testSkill.getSkillLevel()).isEqualTo(DEFAULT_SKILL_LEVEL);
+       // assertThat(testSkill.getSkillLevel()).isEqualTo(DEFAULT_SKILL_LEVEL);
     }
 
     @Test
@@ -180,8 +180,8 @@ public class SkillResourceIntTest {
         // Disconnect from session so that the updates on updatedSkill are not directly saved in db
         em.detach(updatedSkill);
         updatedSkill
-            .skillName(UPDATED_SKILL_NAME)
-            .skillLevel(UPDATED_SKILL_LEVEL);
+            .skillName(UPDATED_SKILL_NAME);
+            //.skillLevel(UPDATED_SKILL_LEVEL);
 
         restSkillMockMvc.perform(put("/api/skills")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -193,7 +193,7 @@ public class SkillResourceIntTest {
         assertThat(skillList).hasSize(databaseSizeBeforeUpdate);
         Skill testSkill = skillList.get(skillList.size() - 1);
         assertThat(testSkill.getSkillName()).isEqualTo(UPDATED_SKILL_NAME);
-        assertThat(testSkill.getSkillLevel()).isEqualTo(UPDATED_SKILL_LEVEL);
+        //assertThat(testSkill.getSkillLevel()).isEqualTo(UPDATED_SKILL_LEVEL);
     }
 
     @Test

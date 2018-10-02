@@ -7,18 +7,7 @@
         Added the constraints for entity Extent.
     -->
     <changeSet id="20180912065727-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="jobseeker_id"
-                                 baseTableName="extent"
-                                 constraintName="fk_extent_jobseeker_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jobseeker"/>
 
-        <addForeignKeyConstraint baseColumnNames="vacancy_id"
-                                 baseTableName="extent"
-                                 constraintName="fk_extent_vacancy_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="vacancy"/>
 
     </changeSet>
 </databaseChangeLog>

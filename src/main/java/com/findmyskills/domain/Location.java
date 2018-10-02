@@ -29,10 +29,16 @@ public class Location implements Serializable {
     private String county;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_prefers_work_in", 
+		joinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
 
     @ManyToOne
+    @JoinTable(name = "vacancies_have_location", 
+		joinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Vacancy vacancy;
 

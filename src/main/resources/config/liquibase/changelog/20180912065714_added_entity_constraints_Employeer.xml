@@ -13,6 +13,11 @@
                                  constraintName="fk_employeer_user_id"
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
-
+                                 
+        <addForeignKeyConstraint baseColumnNames="image_id"
+                                 baseTableName="employeer"
+                                 constraintName="fk_employeer_image_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employeer_image"/>
     </changeSet>
 </databaseChangeLog>

@@ -37,9 +37,9 @@ public class Employeer implements Serializable {
     @Column(name = "company_registration_number")
     private String companyRegistrationNumber;
     
-//    @OneToOne
-//    @JoinColumn(unique = true)
-//    private EmployeerImage image;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private EmployeerImage image;
     
     @OneToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -50,9 +50,9 @@ public class Employeer implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<EmployeerCompliance> employeerCompliances = new HashSet<>();
 
-    @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<EmployeerImage> images = new HashSet<>();
+//    @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
+//    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//    private Set<EmployeerImage> images = new HashSet<>();
 
     @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -145,38 +145,38 @@ public class Employeer implements Serializable {
         this.employeerCompliances = employeerCompliances;
     }
 
-    public Set<EmployeerImage> getImages() {
-        return images;
-    }
-
-    public Employeer images(Set<EmployeerImage> employeerImages) {
-        this.images = employeerImages;
-        return this;
-    }
-
-    public Employeer addImage(EmployeerImage employeerImage) {
-        this.images.add(employeerImage);
-        employeerImage.setEmployeer(this);
-        return this;
-    }
-
-    public Employeer removeImage(EmployeerImage employeerImage) {
-        this.images.remove(employeerImage);
-        employeerImage.setEmployeer(null);
-        return this;
-    }
-
-    public void setImages(Set<EmployeerImage> employeerImages) {
-        this.images = employeerImages;
-    }
-
-//    public EmployeerImage getImage() {
-//		return image;
-//	}
+//    public Set<EmployeerImage> getImages() {
+//        return images;
+//    }
 //
-//	public void setImage(EmployeerImage image) {
-//		this.image = image;
-//	}
+//    public Employeer images(Set<EmployeerImage> employeerImages) {
+//        this.images = employeerImages;
+//        return this;
+//    }
+//
+//    public Employeer addImage(EmployeerImage employeerImage) {
+//        this.images.add(employeerImage);
+//        employeerImage.setEmployeer(this);
+//        return this;
+//    }
+//
+//    public Employeer removeImage(EmployeerImage employeerImage) {
+//        this.images.remove(employeerImage);
+//        employeerImage.setEmployeer(null);
+//        return this;
+//    }
+//
+//    public void setImages(Set<EmployeerImage> employeerImages) {
+//        this.images = employeerImages;
+//    }
+
+    public EmployeerImage getImage() {
+		return image;
+	}
+
+	public void setImage(EmployeerImage image) {
+		this.image = image;
+	}
 
 	public Set<Vacancy> getVacancies() {
         return vacancies;

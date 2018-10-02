@@ -30,10 +30,16 @@ public class Branch implements Serializable {
     private String branchName;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_prefers_branch", 
+    	joinColumns = @JoinColumn(name = "branch_id", referencedColumnName = "id"), 
+    	inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
 
     @ManyToOne
+    @JoinTable(name = "vacancies_wants_branch", 
+		joinColumns = @JoinColumn(name = "branch_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Vacancy vacancy;
 

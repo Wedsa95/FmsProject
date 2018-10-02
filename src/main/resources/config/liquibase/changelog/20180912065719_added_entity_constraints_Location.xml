@@ -8,17 +8,5 @@
     -->
     <changeSet id="20180912065719-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="jobseeker_id"
-                                 baseTableName="location"
-                                 constraintName="fk_location_jobseeker_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jobseeker"/>
-
-        <addForeignKeyConstraint baseColumnNames="vacancy_id"
-                                 baseTableName="location"
-                                 constraintName="fk_location_vacancy_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="vacancy"/>
-
     </changeSet>
 </databaseChangeLog>

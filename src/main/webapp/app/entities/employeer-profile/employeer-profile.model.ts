@@ -8,7 +8,7 @@ export class Employeer implements BaseEntity {
         public companyRegistrationNumber?: string,
         public user?: User,
         public employeerCompliances?: BaseEntity[],
-        public images?: BaseEntity[],
+        public images?: BaseEntity,
         public vacancies?: BaseEntity[],
     ) {
     }

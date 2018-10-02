@@ -7,18 +7,6 @@
         Added the constraints for entity Branch.
     -->
     <changeSet id="20180912065718-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="jobseeker_id"
-                                 baseTableName="branch"
-                                 constraintName="fk_branch_jobseeker_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jobseeker"/>
-
-        <addForeignKeyConstraint baseColumnNames="vacancy_id"
-                                 baseTableName="branch"
-                                 constraintName="fk_branch_vacancy_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="vacancy"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -7,18 +7,7 @@
         Added the constraints for entity Language.
     -->
     <changeSet id="20180912065721-2" author="jhipster">
-        
-        <addForeignKeyConstraint baseColumnNames="jobseeker_id"
-                                 baseTableName="language"
-                                 constraintName="fk_language_jobseeker_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jobseeker"/>
 
-        <addForeignKeyConstraint baseColumnNames="vacancy_id"
-                                 baseTableName="language"
-                                 constraintName="fk_language_vacancy_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="vacancy"/>
 
     </changeSet>
 </databaseChangeLog>

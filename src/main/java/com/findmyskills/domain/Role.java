@@ -29,10 +29,16 @@ public class Role implements Serializable {
     private String roleName;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_worked_as_roles", 
+		joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
 
     @ManyToOne
+    @JoinTable(name = "vacancie_needs_roles", 
+		joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Vacancy vacancy;
 

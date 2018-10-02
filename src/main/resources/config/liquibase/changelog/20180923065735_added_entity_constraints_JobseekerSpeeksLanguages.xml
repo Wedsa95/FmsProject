@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity JobseekerSpeeksLanguages.
+    -->
+    <changeSet id="20180923065735-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="language_id"
+                                 baseTableName="jobseeker_speeks_languages"
+                                 constraintName="fk_jobseeker_speeks_languages_language_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="language"/>
+
+        <addForeignKeyConstraint baseColumnNames="jobseeker_id"
+                                 baseTableName="jobseeker_speeks_languages"
+                                 constraintName="fk_jobseeker_speeks_languages_jobseeker_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jobseeker"/>
+
+    </changeSet>
+</databaseChangeLog>

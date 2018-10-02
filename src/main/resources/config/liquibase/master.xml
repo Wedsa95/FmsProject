@@ -27,6 +27,21 @@
     <include file="config/liquibase/changelog/20180912065732_added_entity_Education.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065733_added_entity_Degree.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065734_added_entity_WorkExperience.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180923065735_added_entity_JobseekerSpeeksLanguages.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065736_added_entity_VacanciesNeedsLanguages.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065737_added_entity_EmployeerLooksforJobseeker.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065738_added_entity_JobseekerWantExtent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065739_added_entity_VacanciesHaveExtent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065740_added_entity_JobseekerPrefersWorkIn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065741_added_entity_VacanciesHaveLocation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065742_added_entity_JobseekerLooksforVacancies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065743_added_entity_VacanciesNeedsDegree.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065744_added_entity_VacancieNeedsRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065745_added_entity_JobseekerWorkedAsRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065746_added_entity_JobseekerHasSkills.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065747_added_entity_VacanciesNeedsSkills.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065748_added_entity_VacanciesWantsBranch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065749_added_entity_JobseekerPrefersBranch.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180912065713_added_entity_constraints_Jobseeker.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065714_added_entity_constraints_Employeer.xml" relativeToChangelogFile="false"/>
@@ -46,5 +61,20 @@
     <include file="config/liquibase/changelog/20180912065730_added_entity_constraints_Email.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065732_added_entity_constraints_Education.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065734_added_entity_constraints_WorkExperience.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180923065735_added_entity_constraints_JobseekerSpeeksLanguages.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065736_added_entity_constraints_VacanciesNeedsLanguages.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065737_added_entity_constraints_EmployeerLooksforJobseeker.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065738_added_entity_constraints_JobseekerWantExtent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065739_added_entity_constraints_VacanciesHaveExtent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065740_added_entity_constraints_JobseekerPrefersWorkIn.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065741_added_entity_constraints_VacanciesHaveLocation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065742_added_entity_constraints_JobseekerLooksforVacancies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065743_added_entity_constraints_VacanciesNeedsDegree.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065744_added_entity_constraints_VacancieNeedsRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065745_added_entity_constraints_JobseekerWorkedAsRoles.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065746_added_entity_constraints_JobseekerHasSkills.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065747_added_entity_constraints_VacanciesNeedsSkills.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065748_added_entity_constraints_VacanciesWantsBranch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180924065749_added_entity_constraints_JobseekerPrefersBranch.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

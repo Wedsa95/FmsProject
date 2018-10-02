@@ -28,9 +28,9 @@ public class EmployeerImage implements Serializable {
     @Column(name = "image_link")
     private String imageLink;
 
-    @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Employeer employeer;
+//    @ManyToOne
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    private Employeer employeer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -54,19 +54,19 @@ public class EmployeerImage implements Serializable {
         this.imageLink = imageLink;
     }
 
-    @JsonIgnore
-    public Employeer getEmployeer() {
-        return employeer;
-    }
-
-    public EmployeerImage employeer(Employeer employeer) {
-        this.employeer = employeer;
-        return this;
-    }
-
-    public void setEmployeer(Employeer employeer) {
-        this.employeer = employeer;
-    }
+//    @JsonIgnore
+//    public Employeer getEmployeer() {
+//        return employeer;
+//    }
+//
+//    public EmployeerImage employeer(Employeer employeer) {
+//        this.employeer = employeer;
+//        return this;
+//    }
+//
+//    public void setEmployeer(Employeer employeer) {
+//        this.employeer = employeer;
+//    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

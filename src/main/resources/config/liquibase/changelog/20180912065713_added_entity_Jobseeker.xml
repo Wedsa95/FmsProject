@@ -47,11 +47,14 @@
             </column>
             <column name="user_id" type="bigint">
                 <constraints unique="true" nullable="true" />
-            </column>            <column name="image_id" type="bigint">
+            </column>            
+            <column name="image_id" type="bigint">
                 <constraints unique="true" nullable="true" />
-            </column>            <column name="video_id" type="bigint">
+            </column>            
+            <column name="video_id" type="bigint">
                 <constraints unique="true" nullable="true" />
-            </column>            <column name="presentation_id" type="bigint">
+            </column>            
+            <column name="presentation_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
