@@ -50,6 +50,9 @@ public class Vacancy implements Serializable {
     private String contactPerson;
 
     @ManyToOne
+    @JoinTable(name = "employeer_have_vacancies", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "employeer_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Employeer employeer;
 
@@ -57,11 +60,13 @@ public class Vacancy implements Serializable {
     @JoinTable(name = "vacancies_needs_degree", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "degree_id", referencedColumnName = "id"))
-    @JoinColumn(unique = true)
     private Degree degree;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinTable(name = "vacancies_wants_consulting_experience", 
+		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"))
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private ConsultingExperience consultingExperience;
 
     @OneToMany

@@ -93,9 +93,12 @@ public class Jobseeker implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Location> locations = new HashSet<>();
 
-    @OneToMany(mappedBy = "jobseeker", fetch = FetchType.EAGER)
+    @OneToOne
+    @JoinTable(name = "jobseeker_have_consulting_experience", 
+		joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<ConsultingExperience> consultingExperiences = new HashSet<>();
+    private ConsultingExperience consultingExperiences;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "jobseeker_worked_as_roles", 
@@ -375,36 +378,49 @@ public class Jobseeker implements Serializable {
         this.locations = locations;
     }
 
-    public Set<ConsultingExperience> getConsultingExperiences() {
-        return consultingExperiences;
-    }
+//    public Set<ConsultingExperience> getConsultingExperiences() {
+//        return consultingExperiences;
+//    }
+//
+//    public Jobseeker consultingExperiences(Set<ConsultingExperience> consultingExperiences) {
+//        this.consultingExperiences = consultingExperiences;
+//        return this;
+//    }
+//
+//    public Jobseeker addConsultingExperience(ConsultingExperience consultingExperience) {
+//        this.consultingExperiences.add(consultingExperience);
+//        consultingExperience.setJobseeker(this);
+//        return this;
+//    }
+//
+//    public Jobseeker removeConsultingExperience(ConsultingExperience consultingExperience) {
+//        this.consultingExperiences.remove(consultingExperience);
+//        consultingExperience.setJobseeker(null);
+//        return this;
+//    }
+//
+//    public void setConsultingExperiences(Set<ConsultingExperience> consultingExperiences) {
+//        this.consultingExperiences = consultingExperiences;
+//    }
 
-    public Jobseeker consultingExperiences(Set<ConsultingExperience> consultingExperiences) {
-        this.consultingExperiences = consultingExperiences;
-        return this;
-    }
-
-    public Jobseeker addConsultingExperience(ConsultingExperience consultingExperience) {
-        this.consultingExperiences.add(consultingExperience);
-        consultingExperience.setJobseeker(this);
-        return this;
-    }
-
-    public Jobseeker removeConsultingExperience(ConsultingExperience consultingExperience) {
-        this.consultingExperiences.remove(consultingExperience);
-        consultingExperience.setJobseeker(null);
-        return this;
-    }
-
-    public void setConsultingExperiences(Set<ConsultingExperience> consultingExperiences) {
-        this.consultingExperiences = consultingExperiences;
-    }
-
+    
     public Set<Role> getRoles() {
         return roles;
     }
 
-    public Jobseeker roles(Set<Role> roles) {
+    public ConsultingExperience getConsultingExperiences() {
+		return consultingExperiences;
+	}
+
+	public void setConsultingExperiences(ConsultingExperience consultingExperiences) {
+		this.consultingExperiences = consultingExperiences;
+	}
+
+	public Boolean getUnemployed() {
+		return unemployed;
+	}
+
+	public Jobseeker roles(Set<Role> roles) {
         this.roles = roles;
         return this;
     }
@@ -599,6 +615,7 @@ public class Jobseeker implements Serializable {
     public void setReferences(Set<Reference> references) {
         this.references = references;
     }
+    
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

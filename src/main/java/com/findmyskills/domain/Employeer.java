@@ -54,7 +54,10 @@ public class Employeer implements Serializable {
 //    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 //    private Set<EmployeerImage> images = new HashSet<>();
 
-    @OneToMany(mappedBy = "employeer", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "employeer_have_vacancies", 
+		joinColumns = @JoinColumn(name = "employeer_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Vacancy> vacancies = new HashSet<>();
 
