@@ -29,9 +29,19 @@ public class ConsultingExperience implements Serializable {
     private Integer yearsConsulting;
 
     @ManyToOne
+    @JoinTable(name = "jobseeker_have_consulting_experience", 
+		joinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Jobseeker jobseeker;
-
+    
+    @ManyToOne
+    @JoinTable(name = "vacancies_wants_consulting_experience", 
+		joinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"))
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Vacancy vacancy;
+    
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -67,9 +77,20 @@ public class ConsultingExperience implements Serializable {
     public void setJobseeker(Jobseeker jobseeker) {
         this.jobseeker = jobseeker;
     }
+    
+    @JsonIgnore
+    public Vacancy getVacancy() {
+		return vacancy;
+	}
+
+	public void setVacancy(Vacancy vacancy) {
+		this.vacancy = vacancy;
+	}
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
-    @Override
+    
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

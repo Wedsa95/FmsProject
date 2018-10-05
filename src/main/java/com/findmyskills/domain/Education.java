@@ -43,7 +43,7 @@ public class Education implements Serializable {
     private Jobseeker jobseeker;
 
     @OneToOne
-    @JoinColumn(unique = true)
+    @JoinColumn
     private Degree degree;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

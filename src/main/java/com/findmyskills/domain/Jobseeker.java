@@ -93,7 +93,7 @@ public class Jobseeker implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Location> locations = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(name = "jobseeker_have_consulting_experience", 
 		joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"))

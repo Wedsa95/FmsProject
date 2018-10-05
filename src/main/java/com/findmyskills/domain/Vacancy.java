@@ -60,6 +60,7 @@ public class Vacancy implements Serializable {
     @JoinTable(name = "vacancies_needs_degree", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "degree_id", referencedColumnName = "id"))
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Degree degree;
 
     @OneToOne
