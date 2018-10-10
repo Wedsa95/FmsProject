@@ -1,0 +1,144 @@
+<div *ngIf="vacancy">
+    <div class="row">
+        <div class="col">
+            <h2>{{vacancy.vacancieRole}}</h2>
+            <p>{{vacancy.uploadDate | date:'dd/MM/yy'}}</p>
+        </div>
+    </div>
+    <jhi-alert></jhi-alert>
+    <div class="row" style="margin-bottom: 12px;">
+        <div class="col">
+            <h4>About the company</h4>
+            <h6>Our active areas:
+                <span *ngFor="let branche of vacancy.branches; let isLast=last" style="font-weight: normal;">
+                    {{ branche.branchName | titlecase}}{{isLast ? '&emsp;' : ', '}}
+                </span>
+            </h6>
+            <p>{{vacancy.aboutDescription}}</p>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 12px;">
+        <div class="col">
+            <h4>About the vacancy</h4>
+            <h6>Located: 
+                <span *ngFor="let location of vacancy.locations; let isLast=last" style="font-weight: normal;">
+                    {{location.county}}{{isLast ? '&emsp;' : ', '}}
+                </span>
+                Extent: 
+                <span *ngFor="let extent of vacancy.extents; let isLast=last" style="font-weight: normal;">
+                    {{extent.extentDescription | titlecase}}{{isLast ? '&emsp;' : ', '}}
+                </span>
+            </h6>
+            <p>{{vacancy.jobDescription}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>What we need from you</h4>
+        </div>
+    </div> 
+        <div class="row" style="margin-bottom: 12px;">
+            <div class="col-md-8 order-md-12">  
+                <h6>
+                    <span *ngFor="let branche of vacancy.branches; let isLast=last">
+                    </span>
+                </h6>
+                <p>{{vacancy.aspirantDescription}}</p>
+            </div>
+            <div class="col-md-4 order-first order-md-12">
+                <h6 *ngIf="vacancy.skills">Desired skills:
+                    <span *ngFor="let skill of vacancy.skills; let isLast=last" style="font-weight: normal;">
+                        {{skill.skillName | titlecase}}{{isLast ? '&emsp;' : ', '}}
+                    </span>
+                </h6>
+                <h6 *ngIf="vacancy.languages">Language skills:
+                    <span *ngFor="let language of vacancy.languages; let isLast=last" style="font-weight: normal;">
+                        {{language.languageName | titlecase}}{{isLast ? '&emsp;' : ', '}}
+                    </span>
+                </h6>
+                <h6 *ngIf="vacancy.consultingExperience">Experience level:
+                    <span style="font-weight: normal;" [innerHTML]="vacancy.consultingExperience.yearsConsulting | iconLevel">
+                        
+                    </span>
+                </h6>
+                
+                <h6 *ngIf="vacancy.degree">Wanted degree:
+                    <span style="font-weight: normal;">
+                        {{vacancy.degree.degreeType | titlecase}}
+                    </span>
+                </h6>
+                
+            </div>
+        </div>
+    
+     <div class="row">
+        <div class="col">
+            <h6>{{vacancy.contactPerson}}</h6>
+        </div>
+    </div>
+</div>
+<!--
+<div *ngIf="vacancy">
+    <h2><span jhiTranslate="fmsApp.vacancy.detail.title">Vacancy</span> {{vacancy.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="fmsApp.vacancy.uploadDate">Upload Date</span></dt>
+        <dd>
+            <span>{{vacancy}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.vacancieRole">Vacancie Role</span></dt>
+        <dd>
+            <span>{{vacancy.vacancieRole}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.jobDescription">Job Description</span></dt>
+        <dd>
+            <span>{{vacancy.jobDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.aspirantDescription">Aspirant Description</span></dt>
+        <dd>
+            <span>{{vacancy.aspirantDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.aboutDescription">About Description</span></dt>
+        <dd>
+            <span>{{vacancy.aboutDescription}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.contactPerson">Contact Person</span></dt>
+        <dd>
+            <span>{{vacancy.contactPerson}}</span>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.employeer">Employeer</span></dt>
+        <dd>
+            <div *ngIf="vacancy.employeer">
+                <a [routerLink]="['/employeer', vacancy.employeer?.id]">{{vacancy.employeer?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.degree">Degree</span></dt>
+        <dd>
+            <div *ngIf="vacancy.degree">
+                <a [routerLink]="['/degree', vacancy.degree?.id]">{{vacancy.degree?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="fmsApp.vacancy.consultingExperience">Consulting Experience</span></dt>
+        <dd>
+            <div *ngIf="vacancy.consultingExperience">
+                <a [routerLink]="['/consulting-experience', vacancy.consultingExperience?.id]">{{vacancy.consultingExperience?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vacancy/'+ vacancy.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
+-->

@@ -17,7 +17,7 @@ export class Jobseeker implements BaseEntity {
         public branches?: BaseEntity[],
         public languages?: BaseEntity[],
         public locations?: BaseEntity[],
-        public consultingExperiences?: BaseEntity[],
+        public consultingExperiences?: BaseEntity,
         public roles?: BaseEntity[],
         public emails?: BaseEntity[],
         public phonenumbers?: BaseEntity[],

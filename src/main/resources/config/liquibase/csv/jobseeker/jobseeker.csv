@@ -1,0 +1,4 @@
+id;regestration_date;birth_year;first_name;last_name;unemployed;last_active;user_id;image_id;video_id;presentation_id
+1;2011-10-07;1964-02-02;Sandra;Bomark;TRUE;2018-10-08;4;null;null;1
+2;2016-01-21;1984-05-13;Keneth;Samuelson;TRUE;2018-10-08;5;null;null;2
+3;2014-11-12;1984-05-13;Mohamed;Salah;TRUE;2018-10-01;7;null;null;3

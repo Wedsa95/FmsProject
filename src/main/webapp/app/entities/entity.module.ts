@@ -5,6 +5,7 @@ import { FmsAppJobseekerProfileModule } from './jobseeker-profile/jobseeker-prof
 import { FmsAppEmployeerModule } from './employeer/employeer.module';
 import { FmsAppEmployeerProfileModule } from './employeer-profile/employeer-profile.module';
 import { FmsAppVacancyModule } from './vacancy/vacancy.module';
+import { FmsAppVacancyListingModule } from './vacancy-listing/vacancy-listing.module';
 import { FmsAppEmployeerComplianceModule } from './employeer-compliance/employeer-compliance.module';
 import { FmsAppEmployeerImageModule } from './employeer-image/employeer-image.module';
 import { FmsAppBranchModule } from './branch/branch.module';
@@ -33,6 +34,7 @@ import { FmsAppWorkExperienceModule } from './work-experience/work-experience.mo
         FmsAppEmployeerModule,
         FmsAppEmployeerProfileModule,
         FmsAppVacancyModule,
+        FmsAppVacancyListingModule,
         FmsAppEmployeerComplianceModule,
         FmsAppEmployeerImageModule,
         FmsAppBranchModule,

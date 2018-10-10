@@ -45,6 +45,9 @@
     <include file="config/liquibase/changelog/20181002065750_added_entity_EmployeerHaveVacancies.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181002065751_added_entity_VacanciesWantsConsultingExperience.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181002065752_added_entity_JobseekerHaveConsultingExperience.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181008065753_insert_basedata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181008065754_insert_jobseeker_basedata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181008065755_insert_employer_basedata.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180912065713_added_entity_constraints_Jobseeker.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180912065714_added_entity_constraints_Employeer.xml" relativeToChangelogFile="false"/>

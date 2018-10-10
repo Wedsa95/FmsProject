@@ -9,6 +9,9 @@ import { JobseekerProfileService } from './jobseeker-profile.service';
 import { Principal } from '../../shared';
 import { WorkExperience } from '../work-experience/work-experience.model';
 import { DurationPipe } from '../../shared/util-pipes/duration.pipe';
+import { Degree, DegreeService } from '../degree';
+import { ConsultingExperience, ConsultingExperienceService } from '../consulting-experience';
+
 
 @Component({
     selector: 'jhi-jobseeker',

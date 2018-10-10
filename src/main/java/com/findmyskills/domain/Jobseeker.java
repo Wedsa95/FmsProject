@@ -1,18 +1,28 @@
 package com.findmyskills.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
-
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A Jobseeker.
@@ -101,7 +111,7 @@ public class Jobseeker implements Serializable {
     private ConsultingExperience consultingExperiences;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "jobseeker_worked_as_roles", 
+    @JoinTable(name = "jobseeker_worked_as_role", 
 		joinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)

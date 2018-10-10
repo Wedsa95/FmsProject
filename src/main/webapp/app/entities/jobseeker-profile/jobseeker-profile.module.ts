@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FmsAppSharedModule } from '../../shared';
 import { FmsAppAdminModule } from '../../admin/admin.module';
 import { DurationPipe } from '../../shared/util-pipes/duration.pipe';
+import { IconLevelPipe } from '../../shared/util-pipes/icon-level.pipe';
 import {
     JobseekerProfileService,
     JobseekerProfilePopupService,

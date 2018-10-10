@@ -5,6 +5,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Employeer } from './employeer-profile.model';
 import { EmployeerProfileService } from './employeer-profile.service';
+import { VacancyListing } from '../vacancy-listing/vacancy-listing.model';
 import { Principal } from '../../shared';
 
 @Component({
@@ -45,6 +46,9 @@ export class EmployeerProfileComponent implements OnInit, OnDestroy {
     }
 
     trackId(index: number, item: Employeer) {
+        return item.id;
+    }
+    trackVacancyId(index: number, item: VacancyListing) {
         return item.id;
     }
     registerChangeInEmployeers() {

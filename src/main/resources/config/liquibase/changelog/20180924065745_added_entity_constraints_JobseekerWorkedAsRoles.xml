@@ -9,14 +9,14 @@
     <changeSet id="20180924065745-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="role_id"
-                                 baseTableName="jobseeker_worked_as_roles"
-                                 constraintName="fk_jobseeker_worked_as_roles_role_id"
+                                 baseTableName="jobseeker_worked_as_role"
+                                 constraintName="fk_jobseeker_worked_as_role_role_id"
                                  referencedColumnNames="id"
                                  referencedTableName="role"/>
 
         <addForeignKeyConstraint baseColumnNames="jobseeker_id"
-                                 baseTableName="jobseeker_worked_as_roles"
-                                 constraintName="fk_jobseeker_worked_as_roles_jobseeker_id"
+                                 baseTableName="jobseeker_worked_as_role"
+                                 constraintName="fk_jobseeker_worked_as_role_jobseeker_id"
                                  referencedColumnNames="id"
                                  referencedTableName="jobseeker"/>
 

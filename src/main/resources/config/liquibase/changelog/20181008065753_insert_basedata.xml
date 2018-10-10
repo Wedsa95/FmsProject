@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Insert basedata for all constant information tables.
+    -->
+	<changeSet id="20181008065753" author="jhipster">
+	        <loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/skills.csv"
+                  separator=";"
+                  tableName="skill">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/extent.csv"
+                  separator=";"
+                  tableName="extent">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/role.csv"
+                  separator=";"
+                  tableName="role">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/branch.csv"
+                  separator=";"
+                  tableName="branch">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/language.csv"
+                  separator=";"
+                  tableName="language">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/degree.csv"
+                  separator=";"
+                  tableName="degree">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/location.csv"
+                  separator=";"
+                  tableName="location">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/basedata/consulting_experience.csv"
+                  separator=";"
+                  tableName="consulting_experience">
+        	</loadData>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

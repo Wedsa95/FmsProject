@@ -18,7 +18,7 @@
         Added the entity JobseekerWorkedAsRoles.
     -->
     <changeSet id="20180924065745-1" author="jhipster">
-        <createTable tableName="jobseeker_worked_as_roles">
+        <createTable tableName="jobseeker_worked_as_role">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

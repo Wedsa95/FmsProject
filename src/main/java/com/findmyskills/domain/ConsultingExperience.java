@@ -1,15 +1,24 @@
 package com.findmyskills.domain;
 
+import java.io.Serializable;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
-
-import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * A ConsultingExperience.
@@ -28,7 +37,7 @@ public class ConsultingExperience implements Serializable {
     @Column(name = "years_consulting")
     private Integer yearsConsulting;
 
-    @ManyToOne
+    @OneToOne
     @JoinTable(name = "jobseeker_have_consulting_experience", 
 		joinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "jobseeker_id", referencedColumnName = "id"))

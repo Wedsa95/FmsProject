@@ -1,0 +1,51 @@
+id;skill_name
+1;java
+2;php
+3;python
+4;javascript
+5;c#
+6;spring
+7;spring Boot
+8;sql
+9;c++
+10;ruby
+11;swift
+12;groovy
+13;scala
+14;kotlin
+15;typeScript
+16;ruby on rails
+17;jsf
+18;struts
+19;hibernate
+20;gwt
+21;vaadin
+22;wicket
+23;vert.X
+24;spring mvc
+25;play
+26;grails
+27;blade
+28;dropWizard
+29;primeFaces
+30;spark
+31;spring Data
+32;spring Boot
+33;spring Cloud
+34;spring Cloud Data Flow
+35;spring Integration
+36;spring Security
+37;spting Web Services
+38;django
+39;pyramid
+40;turboGears
+41;flask
+42;dash
+43;tensorFlow
+44;microsoft CNTK
+45;caffe
+46;theano
+47;angularJS
+48;reactJS
+49;node.JS
+50;angular

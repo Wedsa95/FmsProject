@@ -1,18 +1,30 @@
 package com.findmyskills.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.*;
-
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A Vacancy.
@@ -49,63 +61,63 @@ public class Vacancy implements Serializable {
     @Column(name = "contact_person")
     private String contactPerson;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinTable(name = "employeer_have_vacancies", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "employeer_id", referencedColumnName = "id"))
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Employeer employeer;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_needs_degree", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "degree_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Degree degree;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_wants_consulting_experience", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "consulting_experience_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private ConsultingExperience consultingExperience;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_have_extent", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "extent_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Extent> extents = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancie_needs_roles", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Role> roles = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_have_location", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "location_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Location> locations = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_needs_languages", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "language_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Language> languages = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_wants_branch", 
 		joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
 		inverseJoinColumns = @JoinColumn(name = "branch_id", referencedColumnName = "id"))
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Branch> branches = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vacancies_needs_skills", 
     	joinColumns = @JoinColumn(name = "vacancy_id", referencedColumnName = "id"), 
     	inverseJoinColumns = @JoinColumn(name = "skill_id", referencedColumnName = "id"))

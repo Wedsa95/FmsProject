@@ -205,6 +205,7 @@ public class Employeer implements Serializable {
     public void setVacancies(Set<Vacancy> vacancies) {
         this.vacancies = vacancies;
     }
+    
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

@@ -1,15 +1,23 @@
 package com.findmyskills.domain;
 
+import java.io.Serializable;
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
-
-import java.io.Serializable;
-import java.util.Objects;
 
 /**
  * A Skill.
@@ -28,8 +36,8 @@ public class Skill implements Serializable {
     @Column(name = "skill_name")
     private String skillName;
 
-//    @Column(name = "skill_level")
-//    private Integer skillLevel;
+    @Column(table = "jobseeker_has_skills" , name="skill_level")
+    private Integer skillLevel;
 
     @ManyToOne
     @JoinTable(name = "jobseeker_has_skills", 
@@ -67,18 +75,18 @@ public class Skill implements Serializable {
         this.skillName = skillName;
     }
 
-//    public Integer getSkillLevel() {
-//        return skillLevel;
-//    }
-//
-//    public Skill skillLevel(Integer skillLevel) {
-//        this.skillLevel = skillLevel;
-//        return this;
-//    }
-//
-//    public void setSkillLevel(Integer skillLevel) {
-//        this.skillLevel = skillLevel;
-//    }
+    public Integer getSkillLevel() {
+        return skillLevel;
+    }
+
+    public Skill skillLevel(Integer skillLevel) {
+        this.skillLevel = skillLevel;
+        return this;
+    }
+
+    public void setSkillLevel(Integer skillLevel) {
+        this.skillLevel = skillLevel;
+    }
 
     @JsonIgnore
     public Jobseeker getJobseeker() {

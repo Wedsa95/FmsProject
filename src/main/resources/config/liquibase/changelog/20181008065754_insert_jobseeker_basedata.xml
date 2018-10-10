@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Insert basedata for all jobseeker tables.
+    -->
+	<changeSet id="20181008065754" author="jhipster">
+	        <loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker.csv"
+                  separator=";"
+                  tableName="jobseeker">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/presentation.csv"
+                  separator=";"
+                  tableName="presentation">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/phone_number.csv"
+                  separator=";"
+                  tableName="phone_number">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/email.csv"
+                  separator=";"
+                  tableName="email">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/education.csv"
+                  separator=";"
+                  tableName="education">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/work_experience.csv"
+                  separator=";"
+                  tableName="work_experience">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_speeks_languages.csv"
+                  separator=";"
+                  tableName="jobseeker_speeks_languages">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_want_extent.csv"
+                  separator=";"
+                  tableName="jobseeker_want_extent">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_prefers_work_in.csv"
+                  separator=";"
+                  tableName="jobseeker_prefers_work_in">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_worked_as_roles.csv"
+                  separator=";"
+                  tableName="jobseeker_worked_as_role">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_has_skills.csv"
+                  separator=";"
+                  tableName="jobseeker_has_skills">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_prefers_branch.csv"
+                  separator=";"
+                  tableName="jobseeker_prefers_branch">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/jobseeker/jobseeker_have_consulting_experience.csv"
+                  separator=";"
+                  tableName="jobseeker_have_consulting_experience">
+        	</loadData>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

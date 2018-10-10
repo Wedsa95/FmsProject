@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Insert basedata for all employer tables.
+    -->
+	<changeSet id="20181008065755" author="jhipster">
+	        <loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/employeer.csv"
+                  separator=";"
+                  tableName="employeer">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancy.csv"
+                  separator=";"
+                  tableName="vacancy">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_have_extent.csv"
+                  separator=";"
+                  tableName="vacancies_have_extent">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_needs_languages.csv"
+                  separator=";"
+                  tableName="vacancies_needs_languages">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_have_location.csv"
+                  separator=";"
+                  tableName="vacancies_have_location">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_needs_degree.csv"
+                  separator=";"
+                  tableName="vacancies_needs_degree">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancie_needs_roles.csv"
+                  separator=";"
+                  tableName="vacancie_needs_roles">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_needs_skills.csv"
+                  separator=";"
+                  tableName="vacancies_needs_skills">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_wants_branch.csv"
+                  separator=";"
+                  tableName="vacancies_wants_branch">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/vacancies_wants_consulting_experience.csv"
+                  separator=";"
+                  tableName="vacancies_wants_consulting_experience">
+        	</loadData>
+        	<loadData encoding="UTF-8"
+                  file="config/liquibase/csv/employer/employer_have_vacancies.csv"
+                  separator=";"
+                  tableName="employeer_have_vacancies">
+        	</loadData>
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>
