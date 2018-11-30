@@ -3,12 +3,11 @@ import { RouterModule } from '@angular/router';
 
 import { FmsAppSharedModule } from '../../shared';
 import { FmsAppAdminModule } from '../../admin/admin.module';
-import { DurationPipe } from '../../shared/util-pipes/duration.pipe';
-import { IconLevelPipe } from '../../shared/util-pipes/icon-level.pipe';
 import {
     JobseekerProfileService,
     JobseekerProfilePopupService,
     JobseekerProfileComponent,
+    JobseekerProfilePrivateComponent,
     JobseekerProfileDetailComponent,
     JobseekerProfileDialogComponent,
     JobseekerPopupComponent,
@@ -33,15 +32,16 @@ const ENTITY_STATES = [
         JobseekerProfileComponent,
         JobseekerProfileDetailComponent,
         JobseekerProfileDialogComponent,
+        JobseekerProfilePrivateComponent,
         JobseekerProfileDeleteDialogComponent,
         JobseekerPopupComponent,
-        DurationPipe,
         JobseekerDeletePopupComponent,
     ],
     entryComponents: [
         JobseekerProfileComponent,
         JobseekerProfileDialogComponent,
         JobseekerPopupComponent,
+        JobseekerProfilePrivateComponent,
         JobseekerProfileDeleteDialogComponent,
         JobseekerDeletePopupComponent,
     ],

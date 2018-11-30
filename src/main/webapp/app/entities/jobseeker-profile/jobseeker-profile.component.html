@@ -5,7 +5,7 @@
         	<a [routerLink]="['../jobseeker-image', jobseeker.image?.id ]" >{{jobseeker.image?.id}}</a>
         </div>
         <ng-template #noImage>
-        	<div class="col-sm-3">
+        	<div class="col-sm-4">
         		<button type="submit" *ngIf="jobseeker.image; else changeImage"
                     class="btn btn-light btn-sm">
                     <span class="fa fa-picture-o"></span>
@@ -13,11 +13,20 @@
                 </button>
         	</div>
         </ng-template>
-    	<div class="col-sm-9">
+    	<div class="col-sm-8">
     		<h3>{{jobseeker.firstName}} {{jobseeker.lastName}}</h3>
     		<div *ngIf="jobseeker.presentation">
             	<p [routerLink]="['../presentation', jobseeker.presentation?.id ]" >{{jobseeker.presentation?.presentation}}</p>
             </div>
+            <h6>
+                Wants work in: <span style="font-weight: normal;" *ngFor="let location of jobseeker?.locations; let isLast=last">{{location?.county}}{{isLast ? '&emsp;' : ', '}} </span>
+            </h6>
+            <h6>
+                Wants work extent: <span style="font-weight: normal;" *ngFor="let extent of jobseeker?.experiences; let isLast=last">{{extent?.extentDescription | titlecase}}{{isLast ? '&emsp;' : ', '}} </span>
+            </h6>
+            <h6>
+                Speaks: <span style="font-weight: normal;" *ngFor="let language of jobseeker?.languages; let isLast=last">{{language?.languageName | titlecase}}{{isLast ? '&emsp;' : ', '}} </span>
+            </h6>
     	</div>
     </div>
     <div class="row" *ngIf="jobseeker">
@@ -29,12 +38,16 @@
             </button>
             <ng-template #changeImage>
             </ng-template>
-            <button type="submit" 
+            <button type="submit"
+                [routerLink]="['/', { outlets: { popup: 'presentation/'+ jobseeker.presentation?.id + '/edit'} }]"
+                replaceUrl="true"
+                queryParamsHandling="merge" 
                 class="btn btn-light btn-sm">
                 <span class="fa fa-pencil-square-o"></span>
                 <span class="d-none d-md-inline">Change Presentation</span>
             </button>
             <button type="submit" 
+                [routerLink]="['../jobseeker-private' ]"
                 class="btn btn-light btn-sm">
                 <span class="fa fa-file"></span>
                 <span class="d-none d-md-inline">Change Private Information</span>
@@ -46,12 +59,16 @@
     	<div class="col-sm-8">
     	<!-- Main content -->
 	    	<div *ngIf="jobseeker?.workExperiences">
-	    			<div class="card"*ngFor="let workExperience of jobseeker?.workExperiences">
+	    			<div class="card" *ngFor="let workExperience of jobseeker?.workExperiences">
 	  					<div class="card-body">
 		    				<h5 class="card-title">{{workExperience?.companyName}}</h5>
 		    				<h6 class="card-subtitle mb-2 text-muted">{{workExperience?.position}} <span>{{workExperience?.startDate | date:'dd/MM/yy'}} - {{workExperience?.endDate | date:'dd/MM/yy'}} {{workExperience?.startDate | duration: workExperience?.endDate}} år</span></h6>
 		    				<p class="card-text">{{workExperience?.description}}                                
-                                <button type="submit" class="btn btn-light btn-sm float-right">
+                                <button type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'work-experience/'+ workExperience?.id + '/edit'} }]"
+                                    replaceUrl="true"
+                                    queryParamsHandling="merge"
+                                    class="btn btn-light btn-sm float-right">
                                     <span class="fa fa-pencil-square-o"></span>
                                 </button>
                             </p>
@@ -62,12 +79,17 @@
 	    	<div *ngIf="jobseeker?.educations">
 	    			<div class="card" *ngFor="let education of jobseeker?.educations">
 	  					<div class="card-body">
-		    				<h5 class="card-title">{{education?.institution}}
-                                <button type="submit" class="btn btn-light btn-sm float-right">
+		    				<h5 class="card-title">{{education?.institution}}</h5>
+		    				<h6 class="card-subtitle mb-2 text-muted">
+                                {{education?.program}} - {{education?.degree?.degreeType}} degree <span>{{education?.startDate | date:'dd/MM/yy'}} - {{education?.endDate | date:'dd/MM/yy'}} {{education?.startDate | duration: education?.endDate}} år</span>
+                                <button type="submit"
+                                    [routerLink]="['/', { outlets: { popup: 'education/'+ education?.id + '/edit'} }]"
+                                    replaceUrl="true"
+                                    queryParamsHandling="merge"
+                                    class="btn btn-light btn-sm float-right">
                                     <span class="fa fa-pencil-square-o"></span>
                                 </button>
-                            </h5>
-		    				<h6 class="card-subtitle mb-2 text-muted">{{education?.program}} - {{education?.degree?.degreeType}} degree <span>{{education?.startDate | date:'dd/MM/yy'}} - {{education?.endDate | date:'dd/MM/yy'}} {{education?.startDate | duration: education?.endDate}} år</span></h6>
+                            </h6>
 	  					</div>
 					</div>
 					<br>
@@ -93,8 +115,8 @@
                             class="btn btn-light btn-sm float-right">
                             <span class="fa fa-pencil-square-o"></span>
                         </button></div>
-				  	<ul class="list-group list-group-flush" *ngIf="jobseeker?.consultingExperiences">
-				    	<li class="list-group-item" >{{jobseeker?.consultingExperiences?.yearsConsulting}}
+				  	<ul style="align-items: center;" class="list-group list-group-flush" *ngIf="jobseeker?.consultingExperiences">
+				    	<li class="list-group-item" [innerHTML]="jobseeker?.consultingExperiences?.yearsConsulting | iconLevel">
                         </li>
 				  	</ul>
 				</div>
@@ -104,7 +126,7 @@
     			<div class="card">
     				<div class="card-header">Skills</div>
 				  	<ul class="list-group list-group-flush" *ngFor="let skill of jobseeker?.skills">
-				    	<li class="list-group-item">{{skill?.skillName}} - {{skill?.skillLevel}}
+				    	<li class="list-group-item">{{skill?.skillName | titlecase}} - {{skill?.skillLevel}}
                             <button type="submit" class="btn btn-light btn-sm float-right">
                                 <span class="fa fa-times"></span>
                             </button>
@@ -120,7 +142,7 @@
     			<div class="card">
     				<div class="card-header">Previus branches</div>
 				  	<ul class="list-group list-group-flush" *ngFor="let branche of jobseeker?.branches">
-				    	<li class="list-group-item">{{branche?.branchName}}
+				    	<li class="list-group-item">{{branche?.branchName | titlecase}}
                             <button type="submit" class="btn btn-light btn-sm float-right">
                                 <span class="fa fa-times"></span>
                             </button>
@@ -136,7 +158,7 @@
     			<div class="card">
     				<div class="card-header">Previus roles</div>
 				  	<ul class="list-group list-group-flush" *ngFor="let role of jobseeker?.roles">
-				    	<li class="list-group-item">{{role?.roleName}}
+				    	<li class="list-group-item">{{role?.roleName | titlecase}}
                             <button type="submit" class="btn btn-light btn-sm float-right">
                                 <span class="fa fa-times"></span>
                             </button>

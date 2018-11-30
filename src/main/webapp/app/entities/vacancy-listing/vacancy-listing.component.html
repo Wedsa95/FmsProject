@@ -15,8 +15,8 @@
                     </span>&emsp;
                     -->
                     <span *ngIf="vacancy.skills">
-                        <span *ngFor="let skill of vacancy.skills;" style="font-size:14px; font-weight: normal;">
-                            {{skill.skillName | titlecase }} 
+                        <span *ngFor="let skill of vacancy.skills; let isLast=last" style="font-size:14px; font-weight: normal;">
+                            {{skill.skillName | titlecase }}{{isLast ? '&emsp;' : ', '}} 
                         </span>
                     </span>&emsp;
                     <button type="submit" 

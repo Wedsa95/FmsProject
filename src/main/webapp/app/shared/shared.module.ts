@@ -1,5 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { DurationPipe } from './util-pipes/duration.pipe';
+import { IconLevelPipe } from './util-pipes/icon-level.pipe';
+
 
 import {
     FmsAppSharedLibsModule,
@@ -26,7 +29,9 @@ import {
     declarations: [
         JhiSocialComponent,
         JhiLoginModalComponent,
-        HasAnyAuthorityDirective
+        HasAnyAuthorityDirective,
+        DurationPipe,
+        IconLevelPipe
     ],
     providers: [
         LoginService,
@@ -46,7 +51,9 @@ import {
         JhiSocialComponent,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
-        DatePipe
+        DatePipe,
+        DurationPipe,
+        IconLevelPipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

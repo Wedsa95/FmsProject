@@ -10,7 +10,6 @@ import { Branch } from '../branch/branch.model';
 
 import { VacancyListingService } from './vacancy-listing.service';
 import { Principal } from '../../shared';
-import { IconLevelPipe } from '../../shared/util-pipes/icon-level.pipe';
 
 @Component({
     selector: 'jhi-vacancy',

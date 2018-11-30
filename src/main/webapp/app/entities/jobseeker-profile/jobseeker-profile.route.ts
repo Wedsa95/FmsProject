@@ -5,6 +5,7 @@ import { JobseekerProfileComponent } from './jobseeker-profile.component';
 import { JobseekerProfileDetailComponent } from './jobseeker-profile-detail.component';
 import { JobseekerPopupComponent } from './jobseeker-profile-dialog.component';
 import { JobseekerDeletePopupComponent } from './jobseeker-profile-delete-dialog.component';
+import { JobseekerProfilePrivateComponent } from './jobseeker-profile-private.component';
 
 export const jobseekerProfileRoute: Routes = [
     {
@@ -18,6 +19,14 @@ export const jobseekerProfileRoute: Routes = [
     }, {
         path: 'jobseeker-profile/:id',
         component: JobseekerProfileDetailComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'fmsApp.jobseeker.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'jobseeker-private',
+        component: JobseekerProfilePrivateComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'fmsApp.jobseeker.home.title'

@@ -25,6 +25,7 @@ import { FmsAppPresentationModule } from './presentation/presentation.module';
 import { FmsAppEducationModule } from './education/education.module';
 import { FmsAppDegreeModule } from './degree/degree.module';
 import { FmsAppWorkExperienceModule } from './work-experience/work-experience.module';
+
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({

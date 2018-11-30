@@ -13,10 +13,10 @@ import { Degree, DegreeService } from '../degree';
 import { ConsultingExperience, ConsultingExperienceService } from '../consulting-experience';
 
 @Component({
-    selector: 'jhi-jobseeker',
-    templateUrl: './jobseeker-profile.component.html'
+    selector: 'jhi-jobseeker-private',
+    templateUrl: './jobseeker-profile-private.component.html'
 })
-export class JobseekerProfileComponent implements OnInit, OnDestroy {
+export class JobseekerProfilePrivateComponent implements OnInit, OnDestroy {
     jobseeker: Jobseeker;
     currentAccount: any;
     eventSubscriber: Subscription;

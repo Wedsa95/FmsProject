@@ -5,6 +5,7 @@ import { VacancyListingComponent } from './vacancy-listing.component';
 import { VacancyListingDetailComponent } from './vacancy-listing-detail.component';
 import { VacancyListingPopupComponent } from './vacancy-listing-dialog.component';
 import { VacancyListingDeletePopupComponent } from './vacancy-listing-delete-dialog.component';
+import { VacancyListingCreateComponent } from './vacancy-listing-create.component';
 
 export const vacancyListingRoute: Routes = [
     {
@@ -18,6 +19,14 @@ export const vacancyListingRoute: Routes = [
     }, {
         path: 'vacancy-listing/:id',
         component: VacancyListingDetailComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'fmsApp.vacancy.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    }, {
+        path: 'new-vacancy-listing',
+        component: VacancyListingCreateComponent,
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'fmsApp.vacancy.home.title'

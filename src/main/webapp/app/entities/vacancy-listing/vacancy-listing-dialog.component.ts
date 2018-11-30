@@ -12,6 +12,8 @@ import { VacancyListingService } from './vacancy-listing.service';
 import { Employeer, EmployeerService } from '../employeer';
 import { Degree, DegreeService } from '../degree';
 import { ConsultingExperience, ConsultingExperienceService } from '../consulting-experience';
+import { Language, LanguageService } from '../language';
+import { Autosize } from 'angular2-autosize';
 
 @Component({
     selector: 'jhi-vacancy-listing-dialog',
@@ -21,11 +23,9 @@ export class VacancyListingDialogComponent implements OnInit {
 
     vacancy: VacancyListing;
     isSaving: boolean;
-
     employeers: Employeer[];
-
     degrees: Degree[];
-
+    languages: Language[];
     consultingexperiences: ConsultingExperience[];
     uploadDateDp: any;
 
@@ -34,6 +34,7 @@ export class VacancyListingDialogComponent implements OnInit {
         private dataUtils: JhiDataUtils,
         private jhiAlertService: JhiAlertService,
         private vacancyService: VacancyListingService,
+        private languageService: LanguageService,
         private employeerService: EmployeerService,
         private degreeService: DegreeService,
         private consultingExperienceService: ConsultingExperienceService,

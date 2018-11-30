@@ -2,13 +2,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { FmsAppSharedModule } from '../../shared';
-import { IconLevelPipe } from '../../shared/util-pipes/icon-level.pipe';
+import { Autosize } from 'angular2-autosize';
 import {
     VacancyListingService,
     VacancyListingPopupService,
     VacancyListingComponent,
     VacancyListingDetailComponent,
     VacancyListingDialogComponent,
+    VacancyListingCreateComponent,
     VacancyListingPopupComponent,
     VacancyListingDeletePopupComponent,
     VacancyListingDeleteDialogComponent,
@@ -30,9 +31,10 @@ const ENTITY_STATES = [
         VacancyListingComponent,
         VacancyListingDetailComponent,
         VacancyListingDialogComponent,
+        VacancyListingCreateComponent,
         VacancyListingDeleteDialogComponent,
         VacancyListingPopupComponent,
-        IconLevelPipe,
+        Autosize,
         VacancyListingDeletePopupComponent,
     ],
     entryComponents: [

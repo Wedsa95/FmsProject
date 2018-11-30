@@ -1,0 +1,157 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="row" *ngIf="jobseeker">
+    	<div class="col-sm-3" *ngIf="jobseeker?.image; else noImage">
+        	<a [routerLink]="['../jobseeker-image', jobseeker.image?.id ]" >{{jobseeker.image?.id}}</a>
+        </div>
+        <ng-template #noImage>
+        	<div class="col-sm-3">
+        		<button type="submit" *ngIf="jobseeker?.image; else changeImage"
+                    class="btn btn-light btn-sm">
+                    <span class="fa fa-picture-o"></span>
+                    <span class="d-none d-md-inline">Add Image</span>
+                </button>
+        	</div>
+        </ng-template>
+    	<div class="col-sm-9">
+    		<h3>{{jobseeker?.firstName}} {{jobseeker?.lastName}}</h3>
+            <h6>Registration Date: {{jobseeker?.regestrationDate | date:'dd/MM/yy'}}</h6>
+    	</div>
+    </div>
+    <div class="row" *ngIf="jobseeker">
+        <div class="col-sm" *ngIf="jobseeker?.phonenumbers">
+            <div class="card">
+                <div class="card-header">
+                    Phone numbers
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let phonenumber of jobseeker?.phonenumbers">{{phonenumber?.phoneNumber}} - {{phonenumber?.phoneType}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm" *ngIf="jobseeker?.emails">
+            <div class="card">
+                <div class="card-header">
+                    Emails
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let email of jobseeker?.emails">{{email?.emailAddress}} - {{email?.emailType}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm">
+            <h3>References</h3>
+        </div>
+    </div>
+    <div class="row" *ngIf="jobseeker">
+        <div class="col-sm" *ngIf="jobseeker?.references">
+            <div class="card" *ngFor="let reference of jobseeker?.references">
+                <div class="card-header">
+                    {{reference?.name}} said about you
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{reference?.letter}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-sm">
+            <h3>Compliance</h3>
+        </div>
+    </div>
+    <div class="row" *ngIf="jobseeker">
+        <div class="col-sm" *ngIf="jobseeker?.jobseekerCompliances">
+            <div class="card" *ngFor="let jobseekerCompliance of jobseeker?.jobseekerCompliances">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{jobseekerCompliance?.dateCompliance | date:'dd/MM/yy'}} - {{jobseekerCompliance?.answerCompliance}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+    <div class="table-responsive">
+        <table class="table table-striped">
+       
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.regestrationDate">Regestration Date</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.birthYear">Birth Year</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.firstName">First Name</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.lastName">Last Name</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.unemployed">Unemployed</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.lastActive">Last Active</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.user">User</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.image">Image</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.video">Video</span></th>
+            <th><span jhiTranslate="fmsApp.jobseeker.presentation">Presentation</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            *ngFor="let workExperiences of jobseeker ;trackBy: trackId"
+         
+            <tbody>
+            <tr *ngIf="jobseeker">
+                <td><a [routerLink]="['../jobseeker-profile', jobseeker.id ]">{{jobseeker.id}}</a></td>
+                <td>{{jobseeker.regestrationDate | date:'mediumDate'}}</td>
+                <td>{{jobseeker.birthYear | date:'mediumDate'}}</td>
+                <td>{{jobseeker.firstName}}</td>
+                <td>{{jobseeker.lastName}}</td>
+                <td>{{jobseeker.unemployed}}</td>
+                <td>{{jobseeker.lastActive | date:'mediumDate'}}</td>
+                <td>
+                    {{jobseeker.user?.id}}
+                </td>
+                <td>
+                    <div *ngIf="jobseeker.image">
+                        <a [routerLink]="['../jobseeker-image', jobseeker.image?.id ]" >{{jobseeker.image?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="jobseeker.video">
+                        <a [routerLink]="['../jobseeker-video', jobseeker.video?.id ]" >{{jobseeker.video?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="jobseeker.presentation">
+                        <a [routerLink]="['../presentation', jobseeker.presentation?.id ]" >{{jobseeker.presentation?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../jobseeker', jobseeker.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'jobseeker/'+ jobseeker.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'jobseeker/'+ jobseeker.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    -->
+</div>
