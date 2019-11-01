@@ -4,13 +4,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Jobseeker } from './jobseeker-profile.model';
-import { Education } from '../education/education.model';
 import { JobseekerProfileService } from './jobseeker-profile.service';
 import { Principal } from '../../shared';
-import { WorkExperience } from '../work-experience/work-experience.model';
-import { DurationPipe } from '../../shared/util-pipes/duration.pipe';
-import { Degree, DegreeService } from '../degree';
-import { ConsultingExperience, ConsultingExperienceService } from '../consulting-experience';
 
 @Component({
     selector: 'jhi-jobseeker-private',

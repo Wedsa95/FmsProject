@@ -4,9 +4,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { VacancyListing } from './vacancy-listing.model';
-import { Skill } from '../skill/skill.model';
-import { Degree } from '../degree/degree.model';
-import { Branch } from '../branch/branch.model';
 
 import { VacancyListingService } from './vacancy-listing.service';
 import { Principal } from '../../shared';

@@ -57,7 +57,19 @@ Navbar
     display: inline-block;
     vertical-align: middle;
 }
+body, html, .container-fluid {
+    height: 100%;
+}
 
+.wrapper {
+    min-height: 100vh;
+    max-height: 100%;
+}
+
+main {
+    max-height: 100%;
+    overflow-y: auto;
+}
 /* ==========================================================================
 Logo styles
 ========================================================================== */

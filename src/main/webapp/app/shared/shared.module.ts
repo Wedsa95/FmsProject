@@ -3,7 +3,6 @@ import { DatePipe } from '@angular/common';
 import { DurationPipe } from './util-pipes/duration.pipe';
 import { IconLevelPipe } from './util-pipes/icon-level.pipe';
 
-
 import {
     FmsAppSharedLibsModule,
     FmsAppSharedCommonModule,

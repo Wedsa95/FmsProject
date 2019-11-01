@@ -6,7 +6,6 @@ import { JhiEventManager, JhiDataUtils } from 'ng-jhipster';
 
 import { VacancyListing } from './vacancy-listing.model';
 import { VacancyListingService } from './vacancy-listing.service';
-import { IconLevelPipe } from '../../shared/util-pipes/icon-level.pipe';
 
 @Component({
     selector: 'jhi-vacancy-listing-create',
